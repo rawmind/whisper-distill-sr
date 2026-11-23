@@ -91,4 +91,5 @@ def main():
         Path(args.out).write_text(json.dumps(dump, ensure_ascii=False, indent=1))
 
 
-main()
+if __name__ == "__main__":
+    main()
