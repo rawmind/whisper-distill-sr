@@ -1,0 +1,18 @@
+student fleurs400 WER 24.3 (95% 23.0-25.7) words 7778 cyrillic clips 0 Serbian forms 18/1189
+student parliament150 WER 29.6 (95% 27.1-31.8) words 3763 cyrillic clips 0 Serbian forms 18/454
+student pink10dB WER 37.9 (95% 35.3-40.7) words 1949 cyrillic clips 0 Serbian forms 7/256
+student pink5dB WER 52.6 (95% 49.2-56.1) words 1949 cyrillic clips 0 Serbian forms 5/256
+student fleurs100 short ctx WER 25.8 (95% 23.0-28.9) words 1949 cyrillic clips 1 Serbian forms 5/256
+student parliament100 short ctx WER 30.0 (95% 27.2-32.9) words 2507 cyrillic clips 0 Serbian forms 14/315
+small fleurs400 WER 35.5 (95% 34.0-37.1) words 7778 cyrillic clips 0 Serbian forms 21/1189
+small parliament150 WER 33.1 (95% 30.4-35.6) words 3763 cyrillic clips 0 Serbian forms 11/454
+small pink10dB WER 51.8 (95% 48.9-54.8) words 1949 cyrillic clips 0 Serbian forms 2/256
+small pink5dB WER 68.3 (95% 65.0-71.6) words 1949 cyrillic clips 0 Serbian forms 5/256
+small fleurs100 short ctx WER 35.8 (95% 32.8-39.0) words 1949 cyrillic clips 0 Serbian forms 5/256
+small parliament100 short ctx WER 33.5 (95% 30.4-36.8) words 2507 cyrillic clips 0 Serbian forms 9/315
+turbo fleurs400 WER 11.4 (95% 10.4-12.4) words 7778 cyrillic clips 0 Serbian forms 8/1189
+turbo parliament150 WER 13.6 (95% 11.9-15.4) words 3763 cyrillic clips 0 Serbian forms 2/454
+turbo pink10dB WER 17.7 (95% 15.4-19.9) words 1949 cyrillic clips 0 Serbian forms 6/256
+turbo pink5dB WER 29.9 (95% 26.9-33.1) words 1949 cyrillic clips 0 Serbian forms 6/256
+turbo fleurs100 short ctx WER 16.7 (95% 12.5-21.3) words 1949 cyrillic clips 0 Serbian forms 5/256
+turbo parliament100 short ctx WER 17.4 (95% 14.3-20.7) words 2507 cyrillic clips 0 Serbian forms 2/315

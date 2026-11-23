@@ -2,6 +2,7 @@ import argparse
 import io
 import math
 import random
+import re
 import subprocess
 import urllib.request
 from pathlib import Path
@@ -13,27 +14,31 @@ from benchmark import PORT, post, seconds, wait
 from common import distance, normalize, sample_test
 from prepare import BASE, fetch, stream
 
-SHARD = "https://huggingface.co/datasets/classla/ParlaSpeech-RS/resolve/main/data/train-00137-of-00138.parquet"
+PARLIAMENT = "https://huggingface.co/datasets/classla"
+LANGUAGES = {
+    "sr": ("sr_rs", f"{PARLIAMENT}/ParlaSpeech-RS/resolve/main/data/train-00137-of-00138.parquet"),
+    "hr": ("hr_hr", f"{PARLIAMENT}/ParlaSpeech-HR/resolve/main/data/train-00325-of-00326.parquet"),
+}
 
 
-def fleurs(root, count):
+def fleurs(root, folder, count):
     base = root / "fleurs"
     if not (base / "test.tsv").exists():
-        fetch(f"{BASE}/sr_rs/test.tsv", base / "test.tsv")
+        fetch(f"{BASE}/{folder}/test.tsv", base / "test.tsv")
     refs = sample_test(base / "test.tsv", count)
     (base / "wav").mkdir(exist_ok=True)
     if any(not (base / "wav" / n).exists() for n in refs):
-        stream("sr_rs", "test", set(refs), lambda n, a: sf.write(base / "wav" / n, a, 16000, subtype="PCM_16"))
+        stream(folder, "test", set(refs), lambda n, a: sf.write(base / "wav" / n, a, 16000, subtype="PCM_16"))
     return [(base / "wav" / n, r) for n, r in refs.items()]
 
 
-def parliament(root, count):
+def parliament(root, lang, shard, count):
     import pyarrow.parquet as pq
 
     base = root / "parliament"
     if not (base / "refs.tsv").exists():
         (base / "wav").mkdir(parents=True, exist_ok=True)
-        urllib.request.urlretrieve(SHARD, base / "shard.parquet")
+        urllib.request.urlretrieve(shard, base / "shard.parquet")
         table = pq.read_table(base / "shard.parquet")
         order = list(range(table.num_rows))
         random.Random(5).shuffle(order)
@@ -41,10 +46,11 @@ def parliament(root, count):
         for i in order:
             row = table.slice(i, 1).to_pylist()[0]
             text = (row["text_normalised"] or "").strip()
-            if not 4 <= row["audio_length"] <= 25 or not text:
-                continue
             audio, rate = sf.read(io.BytesIO(row["audio"]["bytes"]), dtype="float32")
             assert rate == 16000
+            length = row["audio_length"] if lang == "sr" else len(audio) / rate
+            if not 4 <= length <= 25 or not text or "[[" in text:
+                continue
             name = f"{len(lines):04d}.wav"
             sf.write(base / "wav" / name, audio if audio.ndim == 1 else audio.mean(1), 16000, subtype="PCM_16")
             lines.append(f"{name}\t{text}")
@@ -81,9 +87,37 @@ def quiet(root, rng):
     return made
 
 
-def score(items, hyps):
-    errors = [distance(normalize(r, "sr"), normalize(h, "sr")) for (_, r), h in zip(items, hyps)]
-    words = [len(normalize(r, "sr")) for _, r in items]
+def aligned(ref, hyp):
+    cost = [list(range(len(hyp) + 1))]
+    for i, r in enumerate(ref, 1):
+        cost.append([i])
+        for j, h in enumerate(hyp, 1):
+            cost[i].append(min(cost[i - 1][j] + 1, cost[i][j - 1] + 1, cost[i - 1][j - 1] + (r != h)))
+    i, j = len(ref), len(hyp)
+    while i and j:
+        if cost[i][j] == cost[i - 1][j - 1] + (ref[i - 1] != hyp[j - 1]):
+            i, j = i - 1, j - 1
+            yield ref[i], hyp[j]
+        elif cost[i][j] == cost[i - 1][j] + 1:
+            i -= 1
+        else:
+            j -= 1
+
+
+def serbian_forms(items, hyps):
+    found = total = 0
+    for (_, ref), hyp in zip(items, hyps):
+        ref = normalize(ref, "hr")
+        total += sum("je" in w for w in ref)
+        for r, h in aligned(ref, normalize(hyp, "hr")):
+            forms = {r[: m.start()] + "e" + r[m.end() :] for part in ("ije", "je") for m in re.finditer(part, r)}
+            found += h in forms
+    return f"Serbian forms {found}/{total}"
+
+
+def score(items, hyps, lang):
+    errors = [distance(normalize(r, lang), normalize(h, lang)) for (_, r), h in zip(items, hyps)]
+    words = [len(normalize(r, lang)) for _, r in items]
     rng = random.Random(0)
     samples = []
     for _ in range(1000):
@@ -93,11 +127,11 @@ def score(items, hyps):
     return f"WER {100 * sum(errors) / sum(words):.1f}\t95% {samples[25]:.1f}-{samples[974]:.1f}\twords {sum(words)}"
 
 
-def run(items, short):
+def run(items, short, lang):
     hyps = []
     for wav, _ in items:
         extra = {"audio_ctx": str(min(1500, max(300, math.ceil((seconds(wav) + 1) * 50))))} if short else {}
-        hyps.append(post(wav, language="sr", response_format="json", temperature="0", no_language_probabilities="true", **extra)["text"])
+        hyps.append(post(wav, language=lang, response_format="json", temperature="0", no_language_probabilities="true", **extra)["text"])
     return hyps
 
 
@@ -105,14 +139,17 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("models", nargs="+", help="name=path/to/ggml.bin")
     p.add_argument("--server", default="whisper-server")
-    p.add_argument("--data", default="data/serbian")
+    p.add_argument("--lang", choices=LANGUAGES, default="sr")
+    p.add_argument("--data", default="data/speech")
     p.add_argument("--clips", type=int, default=400)
     args = p.parse_args()
-    root = Path(args.data)
+    lang = args.lang
+    folder, shard = LANGUAGES[lang]
+    root = Path(args.data) / lang
     root.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(1)
-    items = fleurs(root, args.clips)
-    parl = parliament(root, min(150, args.clips))
+    items = fleurs(root, folder, args.clips)
+    parl = parliament(root, lang, shard, min(150, args.clips))
     first = items[:100]
     tests = [
         ("fleurs", items, False),
@@ -129,8 +166,10 @@ def main():
         try:
             wait()
             for tag, clips, short in tests:
-                print(f"{name}\t{tag}\t{len(clips)} clips\t{score(clips, run(clips, short))}", flush=True)
-            print(f"{name}\tsilence and noise\t{[post(w, language='sr', response_format='json', temperature='0')['text'].strip()[:60] for w in silent]}", flush=True)
+                hyps = run(clips, short, lang)
+                extra = "\t" + serbian_forms(clips, hyps) if lang == "hr" else ""
+                print(f"{name}\t{tag}\t{len(clips)} clips\t{score(clips, hyps, lang)}{extra}", flush=True)
+            print(f"{name}\tsilence and noise\t{[post(w, language=lang, response_format='json', temperature='0')['text'].strip()[:60] for w in silent]}", flush=True)
         finally:
             server.terminate()
             server.wait()
