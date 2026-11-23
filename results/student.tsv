@@ -1,0 +1,12 @@
+sr_rs 100 clips 18.5 min
+hr_hr 100 clips 17.0 min
+en_us 100 clips 16.5 min
+student	sr_rs	WER 24.6	words 1974	52x	212 ms/clip
+student	hr_hr	WER 23.6	words 1949	47x	217 ms/clip
+student	en_us	WER 7.5	words 2236	67x	149 ms/clip
+whisper small	sr_rs	WER 38.2	words 1974	53x	211 ms/clip
+whisper small	hr_hr	WER 35.2	words 1949	47x	217 ms/clip
+whisper small	en_us	WER 7.0	words 2236	67x	148 ms/clip
+whisper large-v3-turbo	sr_rs	WER 12.4	words 1974	23x	483 ms/clip
+whisper large-v3-turbo	hr_hr	WER 11.1	words 1949	14x	702 ms/clip
+whisper large-v3-turbo	en_us	WER 5.5	words 2236	17x	573 ms/clip

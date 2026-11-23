@@ -1,0 +1,15 @@
+sr_rs 100 clips 18.5 min
+hr_hr 100 clips 17.0 min
+en_us 100 clips 16.5 min
+whisper large-v3-turbo	sr_rs	WER 12.4	words 1974	28x	393 ms/clip
+whisper large-v3-turbo	hr_hr	WER 11.1	words 1949	25x	414 ms/clip
+whisper large-v3-turbo	en_us	WER 5.5	words 2236	26x	382 ms/clip
+whisper large-v3-turbo-q5_0	sr_rs	WER 12.8	words 1974	13x	847 ms/clip
+whisper large-v3-turbo-q5_0	hr_hr	WER 11.7	words 1949	14x	720 ms/clip
+whisper large-v3-turbo-q5_0	en_us	WER 5.5	words 2236	18x	558 ms/clip
+whisper small	sr_rs	WER 38.2	words 1974	42x	263 ms/clip
+whisper small	hr_hr	WER 35.2	words 1949	37x	273 ms/clip
+whisper small	en_us	WER 7.0	words 2236	42x	237 ms/clip
+parakeet v3 q8_0	sr_rs	WER 21.2	words 1974	100x incl load	111 ms/clip	one clip 0.71s	empty 0
+parakeet v3 q8_0	hr_hr	WER 10.9	words 1949	106x incl load	96 ms/clip	one clip 0.64s	empty 0
+parakeet v3 q8_0	en_us	WER 5.8	words 2236	78x incl load	127 ms/clip	one clip 0.47s	empty 0
