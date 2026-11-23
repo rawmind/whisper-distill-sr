@@ -49,4 +49,5 @@ def main():
             print(lang, "test clips", len(list((base / "wav").glob("*.wav"))), flush=True)
 
 
-main()
+if __name__ == "__main__":
+    main()
