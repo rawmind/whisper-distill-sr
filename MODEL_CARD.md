@@ -21,6 +21,8 @@ tags:
 Whisper small, distilled from Whisper large-v3-turbo for Serbian. Same size and speed as `small`, with fewer errors in Serbian and Croatian.
 An experiment, not a production model.
 
+**Training code and raw results:** [rawmind/whisper-distill-sr](https://github.com/rawmind/whisper-distill-sr) on GitHub.
+
 Word error rate in %, 100 FLEURS test clips per language, whisper.cpp 1.9.6, language given, Serbian compared in Latin script:
 
 | Model | Serbian | Croatian | English |

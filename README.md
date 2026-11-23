@@ -3,6 +3,8 @@
 Distils Whisper large-v3-turbo into Whisper small for Serbian speech, on one Apple Silicon Mac.
 The student keeps the size and speed of `small` (488 MB in whisper.cpp format).
 
+**Download the model:** [rawmind/whisper-small-sr-distill](https://huggingface.co/rawmind/whisper-small-sr-distill) on Hugging Face.
+
 ## Results
 
 Word error rate in %, lower is better. 100 FLEURS test clips per language, whisper.cpp 1.9.6, language given, Serbian compared in Latin script.
