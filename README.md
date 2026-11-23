@@ -22,6 +22,21 @@ Word error rate in %, with a 95% bootstrap range over clips. Same size as `small
 - **Shortened context:** whisper.cpp's `audio_ctx` set to the clip length plus one second, as Titl does on slow machines.
 - **Silence:** on five clips with no speech (digital silence and plain noise) all three models wrote text. The student wrote `(Šeštaj)` or `(„eštaj)` on four and a line of mixed-script gibberish on the silent one, `small` wrote `[Muzika]` or `*svijedna*`, and turbo wrote `Hvala.` or `Hvala što pratite kanal.`. Filter out silent audio before using any of them.
 
+## Croatian tests
+
+| Croatian test | Clips | Student | Whisper small | large-v3-turbo |
+|---|---|---|---|---|
+| FLEURS, clean read speech | 400 | **24.3** (23.0–25.7) | 35.5 (34.0–37.1) | 11.4 (10.4–12.4) |
+| Parliament, real speech | 150 | **29.6** (27.1–31.8) | 33.1 (30.4–35.6) | 13.6 (11.9–15.4) |
+| FLEURS + pink noise, 10 dB | 100 | **37.9** (35.3–40.7) | 51.8 (48.9–54.8) | 17.7 (15.4–19.9) |
+| FLEURS + pink noise, 5 dB | 100 | **52.6** (49.2–56.1) | 68.3 (65.0–71.6) | 29.9 (26.9–33.1) |
+| FLEURS, shortened context | 100 | **25.8** (23.0–28.9) | 35.8 (32.8–39.0) | 16.7 (12.5–21.3) |
+| Parliament, shortened context | 100 | **30.0** (27.2–32.9) | 33.5 (30.4–36.8) | 17.4 (14.3–20.7) |
+
+Same units and method as the Serbian tests. The student beats `small` in all six, but by less than in Serbian on real speech. On the 150 parliament clips its range overlaps `small`'s, so the two were compared clip by clip: the student is better by 3.5 points (95% 2.0–5.0), with fewer errors on 86 clips and more on 39. Those clips are from one file of [ParlaSpeech-HR](https://huggingface.co/datasets/classla/ParlaSpeech-HR), 44 speakers, and none of the FLEURS test sentences are in the training data.
+
+**Serbian forms:** the student sometimes writes a Serbian form, such as *predsednik* for *predsjednik*. On parliament that was 18 of 454 words containing *je*, against 11 for `small` and 2 for turbo. On FLEURS it was 18 of 1,189, against 21 and 8. This counts misspellings such as *dule* for *dulje* too.
+
 ## Three languages
 
 Word error rate in %, lower is better. 100 FLEURS test clips per language, whisper.cpp 1.9.6, language given, Serbian compared in Latin script.
@@ -33,7 +48,7 @@ Word error rate in %, lower is better. 100 FLEURS test clips per language, whisp
 | Parakeet TDT 0.6B v3, q8_0 | 21.2 | 10.9 | 5.8 |
 | Whisper large-v3-turbo (teacher) | 12.4 | 11.1 | 5.5 |
 
-Raw numbers are in `results/`: `serbian_tests.txt` for the Serbian tests, `student.tsv` and `baselines.tsv` for this table. Parakeet's Serbian output uses Croatian forms, which this score counts as errors.
+Raw numbers are in `results/`: `serbian_tests.txt` and `croatian_tests.txt` for the tests above, `student.tsv` and `baselines.tsv` for this table. Parakeet's Serbian output uses Croatian forms, which this score counts as errors.
 
 ## Limits
 
@@ -61,10 +76,11 @@ python prepare.py
 PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.6 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.5 python distill.py
 ./convert.sh
 python benchmark.py student=models/ggml-small-sr-distill.bin --checks
-python serbian_tests.py student=models/ggml-small-sr-distill.bin
+python speech_tests.py student=models/ggml-small-sr-distill.bin --lang sr
+python speech_tests.py student=models/ggml-small-sr-distill.bin --lang hr
 ```
 
-`serbian_tests.py` downloads the parliament file and the 400 FLEURS clips, about 800 MB, on its first run.
+`speech_tests.py` downloads the parliament file and the FLEURS test set, about 900 MB per language, on its first run.
 `prepare.py` downloads about 3 GB in total and keeps 0.8 GB. The teacher pass takes about 24 minutes and is cached in `work/teacher.pt`.
 The watermark variables cap GPU memory at about 18 GB on a 36 GB Mac. Without a cap, an early run swapped until the disk filled up.
 
