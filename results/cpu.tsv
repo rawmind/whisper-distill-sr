@@ -1,0 +1,21 @@
+# arm64 Darwin threads 4 language sr clips 60 audio 700 s
+model	MB	context	WER fleurs	WER parliament	real-time factor	median ms	p95 ms	load s	memory MB
+student	487	full	28.9	22.2	0.206	2363	2740	0.5	653
+student	487	short	33.3	22.7	0.092	993	1960	0.5	653
+student-q8_0	264	full	28.7	21.5	0.078	881	1193	0.5	443
+student-q8_0	264	short	33.5	22.7	0.035	352	854	0.5	497
+student-q5_1	190	full	28.7	22.2	0.172	1981	2230	0.5	370
+student-q5_1	190	short	36.2	22.0	0.075	815	1586	0.5	370
+small	487	full	43.2	29.0	0.205	2340	2702	0.5	653
+small	487	short	46.8	28.1	0.093	999	2047	0.5	707
+small-q8_0	264	full	41.6	28.2	0.079	885	1187	0.5	443
+small-q8_0	264	short	47.0	28.1	0.035	348	850	0.5	498
+small-q5_1	190	full	44.3	28.0	0.174	1995	2232	0.5	370
+small-q5_1	190	short	45.5	27.5	0.077	814	1683	0.5	370
+turbo-q5_0	574	full	15.6	13.9	0.819	9551	9713	0.5	760
+turbo-q5_0	574	short	23.7	18.8	0.339	3649	6851	0.5	759
+turbo	1624	full	17.2	12.6	1.113	12973	13219	0.5	1760
+turbo	1624	short	24.4	20.2	0.461	5065	9438	0.5	1762
+student-repeat	487	full	28.9	22.2	0.206	2362	2719	0.5	654
+student-repeat	487	short	33.3	22.7	0.092	990	1947	0.5	654
+parakeet-v3-q8_0	668	cli	21.0	13.7	0.027	313	-	-	-

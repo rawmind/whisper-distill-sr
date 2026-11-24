@@ -1,0 +1,16 @@
+== sr
+student-q8_0	fleurs	400 clips	WER 24.4	95% 23.1-25.9	words 7855
+student-q8_0	parliament	150 clips	WER 22.2	95% 20.2-24.2	words 3763
+student-q8_0	noise 10 dB	100 clips	WER 29.4	95% 26.8-32.1	words 1974
+student-q8_0	noise 5 dB	100 clips	WER 36.4	95% 33.3-39.4	words 1974
+student-q8_0	fleurs, short context	100 clips	WER 28.5	95% 24.7-33.1	words 1974
+student-q8_0	parliament, short context	100 clips	WER 22.1	95% 19.7-24.7	words 2560
+student-q8_0	silence and noise	['ŠOHrava signymjske S جMatihodenija ruci 13th. Mragan, st On ', '(„eštaj)', '(„eštaj)', '(Šuša)', '(Šeštaj)']
+== hr
+student-q8_0	fleurs	400 clips	WER 24.3	95% 23.0-25.7	words 7778	Serbian forms 17/1189
+student-q8_0	parliament	150 clips	WER 29.6	95% 27.1-31.8	words 3763	Serbian forms 18/454
+student-q8_0	noise 10 dB	100 clips	WER 37.8	95% 35.1-40.6	words 1949	Serbian forms 7/256
+student-q8_0	noise 5 dB	100 clips	WER 52.1	95% 48.5-55.7	words 1949	Serbian forms 6/256
+student-q8_0	fleurs, short context	100 clips	WER 26.4	95% 23.3-29.8	words 1949	Serbian forms 5/256
+student-q8_0	parliament, short context	100 clips	WER 30.2	95% 27.3-33.1	words 2507	Serbian forms 13/315
+student-q8_0	silence and noise	['Dakle,�а =zzронmalna sm atmniaid Bre فoke maiso raciujemy У ', '(Šijem)', '(Šijem)', '(Šijem)', '(veša)']
