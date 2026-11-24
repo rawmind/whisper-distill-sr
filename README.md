@@ -106,6 +106,42 @@ Each cell is without VAD → with VAD. Without it, segments usually start in the
 
 Reproduce with `cpu_benchmark.py --silence --server-args "--vad --vad-model ..."` and `timing_test.py`; raw results are in `results/vad_timing.txt`.
 
+## More training data: student_improved
+
+A second student, trained on 20,968 clips instead of 3,344: the FLEURS clips above, plus 15,248 Serbian and 3,922 Croatian clips from [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) and [ParlaSpeech-HR](https://huggingface.co/datasets/classla/ParlaSpeech-HR), before the worst tenth of the parliament clips was dropped. Same size and architecture. Training took 10,354 steps (2.0 epochs) in 4 hours, after a 2.3-hour teacher pass. **The weights are not published.**
+
+Word error rate in %, whisper.cpp 1.9.6 built from source, same clips as the tables above. The change is against the published student, clip by clip, with a 95% range.
+
+| Test | Clips | Serbian | Change | Turbo | Croatian | Change | Turbo |
+|---|---|---|---|---|---|---|---|
+| FLEURS | 400 | **17.4** | −7.2 (−8.2 to −6.2) | 13.2 | **17.9** | −6.4 (−7.3 to −5.5) | 11.4 |
+| Parliament | 150 | **10.3** | −11.8 (−13.4 to −10.2) | 10.1 | **15.9** | −13.7 (−15.2 to −12.2) | 13.6 |
+| FLEURS + pink noise, 10 dB | 100 | **22.2** | −6.9 (−9.1 to −4.9) | 16.9 | **29.6** | −8.4 (−10.7 to −6.3) | 17.7 |
+| FLEURS + pink noise, 5 dB | 100 | **28.5** | −7.9 (−10.1 to −5.8) | 19.9 | **47.3** | −5.4 (−8.1 to −2.7) | 29.9 |
+| FLEURS, shortened context | 100 | **16.4** | −11.6 (−15.5 to −8.4) | 22.1 | **18.1** | −7.7 (−10.5 to −5.5) | 16.7 |
+| Parliament, shortened context | 100 | **11.3** | −11.1 (−12.9 to −9.4) | 15.9 | **15.4** | −14.6 (−16.9 to −12.5) | 17.4 |
+
+The q8_0 file scored within 0.6 points of f16 in every test where both ran on the same build.
+
+- **Parliament scores are optimistic:** the parliament test files are of the same kind as the training files. Every clip from the test speakers and test dates was excluded from training, as were the test sentences.
+- **Language detection is worse than the published student's, and unusable.** On 50 clips per language it called 41 of 50 Serbian clips English and 33 of 50 Croatian ones, and none of the Serbian ones Serbian. Set the language.
+- **English** is 8.3% against 7.5% for the published student on 100 clips.
+- **Silence:** it writes text on all five Serbian and all five Croatian no-speech clips. Use speech detection.
+- **Music and several people talking** are untested, as before.
+- **Licenses:** the master copies of both ParlaSpeech datasets, on CLARIN.SI ([HR](http://hdl.handle.net/11356/1914), [RS](http://hdl.handle.net/11356/1834)), are CC BY-SA 4.0. Hugging Face lists ParlaSpeech-RS as CC BY 4.0 and no license for ParlaSpeech-HR.
+
+Prepare the data with `prepare_parliament.py` (about 5 GB of downloads, 4 GB kept) and train with `distill.py --work work/more --hr 400 --en 400 --minutes 240 --parliament`. The training log is `results/train_student_improved.log`, the raw scores are in `results/student_improved.txt`.
+
+## whisper.cpp versions
+
+The numbers above are from whisper.cpp 1.9.6. Version matters with a shortened context: 1.9.5 made 2.7 to 21.9 more errors per 100 words than 1.9.6 across three models and both languages, with both built from source on the same clips. At full length it was 0.6 to 1.5 points worse. Homebrew's 1.9.5_2 was far worse on shortened context too. `results/whisper_versions.tsv` has every score with its version.
+
+| Error points 1.9.5 adds over 1.9.6 (95% range) | Serbian FLEURS | Serbian parliament | Croatian FLEURS | Croatian parliament |
+|---|---|---|---|---|
+| Published student, shortened | +5.1 (0.8 to 9.5) | +10.0 (2.5 to 19.9) | +21.9 (7.7 to 39.0) | +4.9 (1.4 to 10.4) |
+| student_improved, shortened | +3.7 (1.9 to 5.7) | +3.2 (2.1 to 4.3) | +4.1 (1.7 to 6.9) | +2.8 (1.2 to 4.6) |
+| student_improved q8_0, shortened | +3.1 (1.7 to 4.5) | +3.3 (2.2 to 4.4) | +4.0 (1.6 to 7.1) | +2.7 (1.1 to 4.5) |
+
 ## Three languages
 
 Word error rate in %, lower is better. 100 FLEURS test clips per language, whisper.cpp 1.9.6, language given, Serbian compared in Latin script.

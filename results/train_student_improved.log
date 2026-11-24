@@ -1,0 +1,566 @@
+sr_rs usable 2944 skipped as test overlap 0
+hr_hr usable 377 skipped as test overlap 0
+en_us usable 394 skipped as test overlap 0
+parla_sr usable 15248 skipped as test overlap 0
+parla_hr usable 3922 skipped as test overlap 0
+teacher 8/22885 2s
+teacher 168/22885 47s
+teacher 328/22885 94s
+teacher 488/22885 148s
+teacher 648/22885 209s
+teacher 808/22885 267s
+teacher 968/22885 323s
+teacher 1128/22885 379s
+teacher 1288/22885 434s
+teacher 1448/22885 491s
+teacher 1608/22885 548s
+teacher 1768/22885 606s
+teacher 1928/22885 663s
+teacher 2088/22885 721s
+teacher 2248/22885 778s
+teacher 2408/22885 835s
+teacher 2568/22885 892s
+teacher 2728/22885 949s
+teacher 2888/22885 1006s
+teacher 3048/22885 1063s
+teacher 3208/22885 1120s
+teacher 3368/22885 1177s
+teacher 3528/22885 1234s
+teacher 3688/22885 1292s
+teacher 3848/22885 1349s
+teacher 4008/22885 1406s
+teacher 4168/22885 1464s
+teacher 4328/22885 1521s
+teacher 4488/22885 1578s
+teacher 4648/22885 1636s
+teacher 4808/22885 1693s
+teacher 4968/22885 1751s
+teacher 5128/22885 1809s
+teacher 5288/22885 1866s
+teacher 5448/22885 1924s
+teacher 5608/22885 1981s
+teacher 5768/22885 2039s
+teacher 5928/22885 2097s
+teacher 6088/22885 2155s
+teacher 6248/22885 2213s
+teacher 6408/22885 2270s
+teacher 6568/22885 2328s
+teacher 6728/22885 2386s
+teacher 6888/22885 2443s
+teacher 7048/22885 2501s
+teacher 7208/22885 2559s
+teacher 7368/22885 2616s
+teacher 7528/22885 2675s
+teacher 7688/22885 2733s
+teacher 7848/22885 2791s
+teacher 8008/22885 2849s
+teacher 8168/22885 2907s
+teacher 8328/22885 2965s
+teacher 8488/22885 3023s
+teacher 8648/22885 3081s
+teacher 8808/22885 3139s
+teacher 8968/22885 3197s
+teacher 9128/22885 3254s
+teacher 9288/22885 3312s
+teacher 9448/22885 3370s
+teacher 9608/22885 3428s
+teacher 9768/22885 3485s
+teacher 9928/22885 3543s
+teacher 10088/22885 3601s
+teacher 10248/22885 3659s
+teacher 10408/22885 3717s
+teacher 10568/22885 3775s
+teacher 10728/22885 3832s
+teacher 10888/22885 3890s
+teacher 11048/22885 3948s
+teacher 11208/22885 4007s
+teacher 11368/22885 4065s
+teacher 11528/22885 4122s
+teacher 11688/22885 4180s
+teacher 11848/22885 4238s
+teacher 12008/22885 4296s
+teacher 12168/22885 4354s
+teacher 12328/22885 4412s
+teacher 12488/22885 4469s
+teacher 12648/22885 4527s
+teacher 12808/22885 4584s
+teacher 12968/22885 4642s
+teacher 13128/22885 4700s
+teacher 13288/22885 4758s
+teacher 13448/22885 4815s
+teacher 13608/22885 4873s
+teacher 13768/22885 4931s
+teacher 13928/22885 4989s
+teacher 14088/22885 5047s
+teacher 14248/22885 5105s
+teacher 14408/22885 5162s
+teacher 14568/22885 5220s
+teacher 14728/22885 5278s
+teacher 14888/22885 5337s
+teacher 15048/22885 5395s
+teacher 15208/22885 5454s
+teacher 15368/22885 5513s
+teacher 15528/22885 5571s
+teacher 15688/22885 5629s
+teacher 15848/22885 5688s
+teacher 16008/22885 5746s
+teacher 16168/22885 5805s
+teacher 16328/22885 5863s
+teacher 16488/22885 5921s
+teacher 16648/22885 5980s
+teacher 16808/22885 6038s
+teacher 16968/22885 6097s
+teacher 17128/22885 6155s
+teacher 17288/22885 6213s
+teacher 17448/22885 6271s
+teacher 17608/22885 6329s
+teacher 17768/22885 6387s
+teacher 17928/22885 6445s
+teacher 18088/22885 6503s
+teacher 18248/22885 6562s
+teacher 18408/22885 6620s
+teacher 18568/22885 6678s
+teacher 18728/22885 6737s
+teacher 18888/22885 6795s
+teacher 19048/22885 6853s
+teacher 19208/22885 6911s
+teacher 19368/22885 6970s
+teacher 19528/22885 7028s
+teacher 19688/22885 7086s
+teacher 19848/22885 7145s
+teacher 20008/22885 7204s
+teacher 20168/22885 7262s
+teacher 20328/22885 7319s
+teacher 20488/22885 7377s
+teacher 20648/22885 7435s
+teacher 20808/22885 7493s
+teacher 20968/22885 7551s
+teacher 21128/22885 7609s
+teacher 21288/22885 7667s
+teacher 21448/22885 7725s
+teacher 21608/22885 7783s
+teacher 21768/22885 7841s
+teacher 21928/22885 7899s
+teacher 22088/22885 7957s
+teacher 22248/22885 8015s
+teacher 22408/22885 8073s
+teacher 22568/22885 8130s
+teacher 22728/22885 8189s
+teacher 22885/22885 8246s
+dropped 1917 parliament clips with teacher loss above 0.94, median 0.47
+train clips 20968
+step 25 ce 0.777 kd 1.317 0.73 it/s epoch 0.00 mps 12.2GB disk 22.6GB batt (True, 100)
+step 50 ce 0.796 kd 1.257 0.73 it/s epoch 0.01 mps 12.1GB disk 22.6GB batt (True, 100)
+step 75 ce 0.588 kd 1.149 0.73 it/s epoch 0.01 mps 13.3GB disk 22.6GB batt (True, 100)
+step 100 ce 0.570 kd 1.065 0.74 it/s epoch 0.02 mps 12.1GB disk 22.6GB batt (True, 100)
+step 125 ce 0.522 kd 1.035 0.74 it/s epoch 0.02 mps 13.3GB disk 22.6GB batt (True, 100)
+step 150 ce 0.562 kd 1.036 0.74 it/s epoch 0.03 mps 12.1GB disk 22.6GB batt (True, 100)
+step 175 ce 0.510 kd 1.001 0.75 it/s epoch 0.03 mps 13.3GB disk 22.6GB batt (True, 100)
+step 200 ce 0.545 kd 0.970 0.75 it/s epoch 0.04 mps 13.1GB disk 22.6GB batt (True, 100)
+step 225 ce 0.491 kd 0.915 0.75 it/s epoch 0.04 mps 13.3GB disk 22.6GB batt (True, 100)
+step 250 ce 0.507 kd 0.925 0.75 it/s epoch 0.05 mps 13.2GB disk 22.6GB batt (True, 100)
+step 275 ce 0.482 kd 0.867 0.75 it/s epoch 0.05 mps 13.3GB disk 22.6GB batt (True, 100)
+step 300 ce 0.485 kd 0.881 0.75 it/s epoch 0.06 mps 12.1GB disk 22.6GB batt (True, 100)
+step 325 ce 0.434 kd 0.839 0.75 it/s epoch 0.06 mps 13.3GB disk 22.6GB batt (True, 100)
+step 350 ce 0.461 kd 0.871 0.75 it/s epoch 0.07 mps 13.2GB disk 22.6GB batt (True, 100)
+step 375 ce 0.496 kd 0.883 0.75 it/s epoch 0.07 mps 13.3GB disk 22.6GB batt (True, 100)
+step 400 ce 0.438 kd 0.830 0.75 it/s epoch 0.08 mps 12.1GB disk 22.6GB batt (True, 100)
+step 425 ce 0.452 kd 0.873 0.75 it/s epoch 0.08 mps 13.3GB disk 22.6GB batt (True, 100)
+step 450 ce 0.468 kd 0.848 0.75 it/s epoch 0.09 mps 13.2GB disk 22.6GB batt (True, 100)
+step 475 ce 0.428 kd 0.788 0.75 it/s epoch 0.09 mps 13.3GB disk 22.6GB batt (True, 100)
+step 500 ce 0.418 kd 0.809 0.75 it/s epoch 0.10 mps 12.1GB disk 22.6GB batt (True, 100)
+step 525 ce 0.431 kd 0.762 0.75 it/s epoch 0.10 mps 13.3GB disk 22.6GB batt (True, 100)
+step 550 ce 0.522 kd 0.846 0.75 it/s epoch 0.10 mps 12.1GB disk 22.6GB batt (True, 100)
+step 575 ce 0.443 kd 0.798 0.75 it/s epoch 0.11 mps 13.3GB disk 22.6GB batt (True, 100)
+step 600 ce 0.437 kd 0.764 0.75 it/s epoch 0.11 mps 12.1GB disk 22.6GB batt (True, 100)
+step 625 ce 0.416 kd 0.769 0.75 it/s epoch 0.12 mps 13.3GB disk 22.6GB batt (True, 100)
+step 650 ce 0.427 kd 0.753 0.75 it/s epoch 0.12 mps 12.1GB disk 22.6GB batt (True, 100)
+step 675 ce 0.428 kd 0.772 0.75 it/s epoch 0.13 mps 13.3GB disk 22.6GB batt (True, 100)
+step 700 ce 0.450 kd 0.768 0.75 it/s epoch 0.13 mps 12.1GB disk 22.6GB batt (True, 100)
+step 725 ce 0.369 kd 0.718 0.75 it/s epoch 0.14 mps 13.3GB disk 22.6GB batt (True, 100)
+step 750 ce 0.412 kd 0.751 0.75 it/s epoch 0.14 mps 12.1GB disk 22.6GB batt (True, 100)
+step 775 ce 0.409 kd 0.733 0.75 it/s epoch 0.15 mps 13.3GB disk 22.6GB batt (True, 100)
+step 800 ce 0.463 kd 0.781 0.75 it/s epoch 0.15 mps 12.1GB disk 22.6GB batt (True, 100)
+step 825 ce 0.407 kd 0.741 0.75 it/s epoch 0.16 mps 13.3GB disk 22.6GB batt (True, 100)
+step 850 ce 0.381 kd 0.685 0.75 it/s epoch 0.16 mps 12.1GB disk 22.6GB batt (True, 100)
+step 875 ce 0.410 kd 0.718 0.75 it/s epoch 0.17 mps 13.3GB disk 22.6GB batt (True, 100)
+step 900 ce 0.356 kd 0.702 0.75 it/s epoch 0.17 mps 12.1GB disk 22.6GB batt (True, 100)
+step 925 ce 0.391 kd 0.678 0.75 it/s epoch 0.18 mps 13.3GB disk 22.6GB batt (True, 100)
+step 950 ce 0.363 kd 0.704 0.75 it/s epoch 0.18 mps 12.1GB disk 22.6GB batt (True, 100)
+step 975 ce 0.382 kd 0.693 0.75 it/s epoch 0.19 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1000 ce 0.369 kd 0.684 0.75 it/s epoch 0.19 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1025 ce 0.405 kd 0.710 0.75 it/s epoch 0.20 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1050 ce 0.395 kd 0.674 0.75 it/s epoch 0.20 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1075 ce 0.408 kd 0.703 0.75 it/s epoch 0.21 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1100 ce 0.371 kd 0.686 0.75 it/s epoch 0.21 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1125 ce 0.369 kd 0.668 0.75 it/s epoch 0.21 mps 13.2GB disk 22.6GB batt (True, 100)
+step 1150 ce 0.434 kd 0.705 0.75 it/s epoch 0.22 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1175 ce 0.375 kd 0.684 0.75 it/s epoch 0.22 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1200 ce 0.366 kd 0.665 0.75 it/s epoch 0.23 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1225 ce 0.369 kd 0.686 0.75 it/s epoch 0.23 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1250 ce 0.390 kd 0.675 0.75 it/s epoch 0.24 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1275 ce 0.356 kd 0.661 0.75 it/s epoch 0.24 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1300 ce 0.357 kd 0.629 0.75 it/s epoch 0.25 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1325 ce 0.384 kd 0.652 0.75 it/s epoch 0.25 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1350 ce 0.338 kd 0.635 0.75 it/s epoch 0.26 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1375 ce 0.323 kd 0.617 0.75 it/s epoch 0.26 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1400 ce 0.363 kd 0.615 0.75 it/s epoch 0.27 mps 13.2GB disk 22.6GB batt (True, 100)
+step 1425 ce 0.381 kd 0.675 0.75 it/s epoch 0.27 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1450 ce 0.388 kd 0.640 0.75 it/s epoch 0.28 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1475 ce 0.364 kd 0.627 0.75 it/s epoch 0.28 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1500 ce 0.369 kd 0.638 0.75 it/s epoch 0.29 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1525 ce 0.356 kd 0.633 0.75 it/s epoch 0.29 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1550 ce 0.388 kd 0.625 0.75 it/s epoch 0.30 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1575 ce 0.366 kd 0.631 0.75 it/s epoch 0.30 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1600 ce 0.343 kd 0.602 0.75 it/s epoch 0.31 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1625 ce 0.386 kd 0.645 0.75 it/s epoch 0.31 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1650 ce 0.339 kd 0.628 0.75 it/s epoch 0.31 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1675 ce 0.365 kd 0.601 0.75 it/s epoch 0.32 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1700 ce 0.315 kd 0.575 0.75 it/s epoch 0.32 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1725 ce 0.348 kd 0.608 0.75 it/s epoch 0.33 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1750 ce 0.347 kd 0.603 0.75 it/s epoch 0.33 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1775 ce 0.350 kd 0.593 0.75 it/s epoch 0.34 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1800 ce 0.334 kd 0.605 0.75 it/s epoch 0.34 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1825 ce 0.325 kd 0.594 0.75 it/s epoch 0.35 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1850 ce 0.323 kd 0.583 0.75 it/s epoch 0.35 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1875 ce 0.361 kd 0.651 0.75 it/s epoch 0.36 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1900 ce 0.346 kd 0.597 0.75 it/s epoch 0.36 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1925 ce 0.329 kd 0.596 0.75 it/s epoch 0.37 mps 13.3GB disk 22.6GB batt (True, 100)
+step 1950 ce 0.328 kd 0.583 0.75 it/s epoch 0.37 mps 12.1GB disk 22.6GB batt (True, 100)
+step 1975 ce 0.370 kd 0.610 0.75 it/s epoch 0.38 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2000 ce 0.316 kd 0.564 0.75 it/s epoch 0.38 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2025 ce 0.311 kd 0.535 0.75 it/s epoch 0.39 mps 14.4GB disk 22.6GB batt (True, 100)
+step 2050 ce 0.307 kd 0.574 0.75 it/s epoch 0.39 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2075 ce 0.327 kd 0.572 0.75 it/s epoch 0.40 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2100 ce 0.306 kd 0.549 0.75 it/s epoch 0.40 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2125 ce 0.335 kd 0.576 0.75 it/s epoch 0.41 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2150 ce 0.317 kd 0.570 0.75 it/s epoch 0.41 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2175 ce 0.330 kd 0.583 0.75 it/s epoch 0.41 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2200 ce 0.321 kd 0.555 0.75 it/s epoch 0.42 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2225 ce 0.329 kd 0.587 0.75 it/s epoch 0.42 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2250 ce 0.334 kd 0.595 0.75 it/s epoch 0.43 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2275 ce 0.367 kd 0.579 0.75 it/s epoch 0.43 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2300 ce 0.284 kd 0.548 0.75 it/s epoch 0.44 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2325 ce 0.265 kd 0.561 0.75 it/s epoch 0.44 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2350 ce 0.297 kd 0.545 0.75 it/s epoch 0.45 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2375 ce 0.310 kd 0.556 0.75 it/s epoch 0.45 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2400 ce 0.290 kd 0.550 0.75 it/s epoch 0.46 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2425 ce 0.316 kd 0.567 0.75 it/s epoch 0.46 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2450 ce 0.282 kd 0.545 0.75 it/s epoch 0.47 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2475 ce 0.329 kd 0.599 0.75 it/s epoch 0.47 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2500 ce 0.312 kd 0.526 0.75 it/s epoch 0.48 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2525 ce 0.332 kd 0.573 0.75 it/s epoch 0.48 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2550 ce 0.290 kd 0.541 0.75 it/s epoch 0.49 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2575 ce 0.307 kd 0.554 0.75 it/s epoch 0.49 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2600 ce 0.307 kd 0.549 0.75 it/s epoch 0.50 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2625 ce 0.314 kd 0.527 0.75 it/s epoch 0.50 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2650 ce 0.327 kd 0.556 0.75 it/s epoch 0.51 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2675 ce 0.302 kd 0.547 0.75 it/s epoch 0.51 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2700 ce 0.293 kd 0.495 0.75 it/s epoch 0.52 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2725 ce 0.305 kd 0.528 0.75 it/s epoch 0.52 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2750 ce 0.331 kd 0.549 0.75 it/s epoch 0.52 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2775 ce 0.334 kd 0.551 0.75 it/s epoch 0.53 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2800 ce 0.285 kd 0.497 0.75 it/s epoch 0.53 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2825 ce 0.309 kd 0.536 0.75 it/s epoch 0.54 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2850 ce 0.319 kd 0.542 0.75 it/s epoch 0.54 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2875 ce 0.311 kd 0.548 0.75 it/s epoch 0.55 mps 13.3GB disk 22.6GB batt (True, 100)
+step 2900 ce 0.307 kd 0.525 0.75 it/s epoch 0.55 mps 12.1GB disk 22.6GB batt (True, 100)
+step 2925 ce 0.293 kd 0.525 0.75 it/s epoch 0.56 mps 14.4GB disk 22.6GB batt (True, 100)
+step 2950 ce 0.287 kd 0.513 0.75 it/s epoch 0.56 mps 13.2GB disk 22.6GB batt (True, 100)
+step 2975 ce 0.297 kd 0.518 0.75 it/s epoch 0.57 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3000 ce 0.329 kd 0.543 0.75 it/s epoch 0.57 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3025 ce 0.296 kd 0.538 0.75 it/s epoch 0.58 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3050 ce 0.325 kd 0.529 0.75 it/s epoch 0.58 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3075 ce 0.300 kd 0.518 0.75 it/s epoch 0.59 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3100 ce 0.318 kd 0.529 0.75 it/s epoch 0.59 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3125 ce 0.339 kd 0.555 0.75 it/s epoch 0.60 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3150 ce 0.262 kd 0.482 0.75 it/s epoch 0.60 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3175 ce 0.282 kd 0.482 0.75 it/s epoch 0.61 mps 13.2GB disk 22.6GB batt (True, 100)
+step 3200 ce 0.301 kd 0.538 0.75 it/s epoch 0.61 mps 13.2GB disk 22.6GB batt (True, 100)
+step 3225 ce 0.301 kd 0.497 0.75 it/s epoch 0.62 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3250 ce 0.294 kd 0.493 0.75 it/s epoch 0.62 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3275 ce 0.291 kd 0.519 0.75 it/s epoch 0.62 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3300 ce 0.297 kd 0.516 0.75 it/s epoch 0.63 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3325 ce 0.279 kd 0.480 0.75 it/s epoch 0.63 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3350 ce 0.289 kd 0.538 0.75 it/s epoch 0.64 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3375 ce 0.318 kd 0.523 0.75 it/s epoch 0.64 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3400 ce 0.288 kd 0.497 0.75 it/s epoch 0.65 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3425 ce 0.282 kd 0.478 0.75 it/s epoch 0.65 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3450 ce 0.308 kd 0.489 0.75 it/s epoch 0.66 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3475 ce 0.285 kd 0.511 0.75 it/s epoch 0.66 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3500 ce 0.299 kd 0.510 0.75 it/s epoch 0.67 mps 13.2GB disk 22.6GB batt (True, 100)
+step 3525 ce 0.282 kd 0.493 0.75 it/s epoch 0.67 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3550 ce 0.287 kd 0.499 0.75 it/s epoch 0.68 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3575 ce 0.279 kd 0.496 0.75 it/s epoch 0.68 mps 13.2GB disk 22.6GB batt (True, 100)
+step 3600 ce 0.260 kd 0.485 0.75 it/s epoch 0.69 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3625 ce 0.283 kd 0.473 0.75 it/s epoch 0.69 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3650 ce 0.278 kd 0.485 0.75 it/s epoch 0.70 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3675 ce 0.302 kd 0.510 0.75 it/s epoch 0.70 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3700 ce 0.293 kd 0.492 0.75 it/s epoch 0.71 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3725 ce 0.270 kd 0.477 0.75 it/s epoch 0.71 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3750 ce 0.282 kd 0.476 0.75 it/s epoch 0.72 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3775 ce 0.258 kd 0.492 0.75 it/s epoch 0.72 mps 13.2GB disk 22.6GB batt (True, 100)
+step 3800 ce 0.296 kd 0.492 0.75 it/s epoch 0.72 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3825 ce 0.309 kd 0.520 0.75 it/s epoch 0.73 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3850 ce 0.260 kd 0.505 0.75 it/s epoch 0.73 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3875 ce 0.305 kd 0.523 0.75 it/s epoch 0.74 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3900 ce 0.281 kd 0.478 0.75 it/s epoch 0.74 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3925 ce 0.272 kd 0.484 0.75 it/s epoch 0.75 mps 13.3GB disk 22.6GB batt (True, 100)
+step 3950 ce 0.298 kd 0.496 0.75 it/s epoch 0.75 mps 12.1GB disk 22.6GB batt (True, 100)
+step 3975 ce 0.240 kd 0.478 0.75 it/s epoch 0.76 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4000 ce 0.278 kd 0.482 0.75 it/s epoch 0.76 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4025 ce 0.299 kd 0.485 0.75 it/s epoch 0.77 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4050 ce 0.286 kd 0.473 0.75 it/s epoch 0.77 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4075 ce 0.282 kd 0.492 0.75 it/s epoch 0.78 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4100 ce 0.265 kd 0.471 0.75 it/s epoch 0.78 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4125 ce 0.277 kd 0.472 0.75 it/s epoch 0.79 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4150 ce 0.291 kd 0.489 0.75 it/s epoch 0.79 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4175 ce 0.265 kd 0.464 0.75 it/s epoch 0.80 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4200 ce 0.293 kd 0.480 0.75 it/s epoch 0.80 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4225 ce 0.274 kd 0.477 0.75 it/s epoch 0.81 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4250 ce 0.269 kd 0.429 0.75 it/s epoch 0.81 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4275 ce 0.291 kd 0.475 0.75 it/s epoch 0.82 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4300 ce 0.256 kd 0.470 0.75 it/s epoch 0.82 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4325 ce 0.288 kd 0.473 0.75 it/s epoch 0.83 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4350 ce 0.272 kd 0.457 0.75 it/s epoch 0.83 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4375 ce 0.295 kd 0.461 0.75 it/s epoch 0.83 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4400 ce 0.260 kd 0.436 0.75 it/s epoch 0.84 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4425 ce 0.243 kd 0.452 0.75 it/s epoch 0.84 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4450 ce 0.282 kd 0.463 0.75 it/s epoch 0.85 mps 13.2GB disk 22.6GB batt (True, 100)
+step 4475 ce 0.268 kd 0.459 0.75 it/s epoch 0.85 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4500 ce 0.262 kd 0.448 0.75 it/s epoch 0.86 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4525 ce 0.272 kd 0.456 0.75 it/s epoch 0.86 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4550 ce 0.293 kd 0.464 0.75 it/s epoch 0.87 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4575 ce 0.244 kd 0.445 0.75 it/s epoch 0.87 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4600 ce 0.269 kd 0.464 0.75 it/s epoch 0.88 mps 13.2GB disk 22.6GB batt (True, 100)
+step 4625 ce 0.291 kd 0.451 0.75 it/s epoch 0.88 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4650 ce 0.281 kd 0.473 0.75 it/s epoch 0.89 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4675 ce 0.259 kd 0.467 0.75 it/s epoch 0.89 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4700 ce 0.255 kd 0.427 0.75 it/s epoch 0.90 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4725 ce 0.254 kd 0.462 0.75 it/s epoch 0.90 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4750 ce 0.280 kd 0.453 0.75 it/s epoch 0.91 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4775 ce 0.266 kd 0.433 0.75 it/s epoch 0.91 mps 14.4GB disk 22.6GB batt (True, 100)
+step 4800 ce 0.260 kd 0.460 0.75 it/s epoch 0.92 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4825 ce 0.255 kd 0.427 0.75 it/s epoch 0.92 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4850 ce 0.285 kd 0.456 0.75 it/s epoch 0.93 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4875 ce 0.265 kd 0.427 0.75 it/s epoch 0.93 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4900 ce 0.269 kd 0.442 0.75 it/s epoch 0.93 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4925 ce 0.285 kd 0.452 0.75 it/s epoch 0.94 mps 13.3GB disk 22.6GB batt (True, 100)
+step 4950 ce 0.267 kd 0.434 0.75 it/s epoch 0.94 mps 12.1GB disk 22.6GB batt (True, 100)
+step 4975 ce 0.280 kd 0.444 0.75 it/s epoch 0.95 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5000 ce 0.259 kd 0.449 0.75 it/s epoch 0.95 mps 13.2GB disk 22.6GB batt (True, 100)
+step 5025 ce 0.247 kd 0.436 0.75 it/s epoch 0.96 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5050 ce 0.250 kd 0.437 0.75 it/s epoch 0.96 mps 13.2GB disk 22.6GB batt (True, 100)
+step 5075 ce 0.253 kd 0.422 0.75 it/s epoch 0.97 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5100 ce 0.271 kd 0.447 0.75 it/s epoch 0.97 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5125 ce 0.271 kd 0.429 0.75 it/s epoch 0.98 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5150 ce 0.263 kd 0.426 0.75 it/s epoch 0.98 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5175 ce 0.229 kd 0.431 0.75 it/s epoch 0.99 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5200 ce 0.245 kd 0.398 0.75 it/s epoch 0.99 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5225 ce 0.277 kd 0.433 0.75 it/s epoch 1.00 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5250 ce 0.220 kd 0.395 0.75 it/s epoch 1.00 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5275 ce 0.168 kd 0.357 0.75 it/s epoch 1.01 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5300 ce 0.188 kd 0.370 0.75 it/s epoch 1.01 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5325 ce 0.172 kd 0.358 0.75 it/s epoch 1.02 mps 14.3GB disk 22.6GB batt (True, 100)
+step 5350 ce 0.171 kd 0.352 0.75 it/s epoch 1.02 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5375 ce 0.172 kd 0.359 0.75 it/s epoch 1.03 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5400 ce 0.181 kd 0.329 0.75 it/s epoch 1.03 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5425 ce 0.155 kd 0.343 0.75 it/s epoch 1.03 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5450 ce 0.209 kd 0.355 0.75 it/s epoch 1.04 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5475 ce 0.171 kd 0.349 0.75 it/s epoch 1.04 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5500 ce 0.170 kd 0.344 0.75 it/s epoch 1.05 mps 13.2GB disk 22.6GB batt (True, 100)
+step 5525 ce 0.167 kd 0.336 0.75 it/s epoch 1.05 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5550 ce 0.183 kd 0.339 0.75 it/s epoch 1.06 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5575 ce 0.184 kd 0.357 0.75 it/s epoch 1.06 mps 13.2GB disk 22.6GB batt (True, 100)
+step 5600 ce 0.184 kd 0.343 0.75 it/s epoch 1.07 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5625 ce 0.174 kd 0.333 0.75 it/s epoch 1.07 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5650 ce 0.177 kd 0.336 0.75 it/s epoch 1.08 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5675 ce 0.181 kd 0.352 0.75 it/s epoch 1.08 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5700 ce 0.167 kd 0.349 0.75 it/s epoch 1.09 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5725 ce 0.183 kd 0.347 0.75 it/s epoch 1.09 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5750 ce 0.218 kd 0.357 0.75 it/s epoch 1.10 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5775 ce 0.189 kd 0.349 0.75 it/s epoch 1.10 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5800 ce 0.169 kd 0.348 0.75 it/s epoch 1.11 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5825 ce 0.202 kd 0.352 0.75 it/s epoch 1.11 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5850 ce 0.180 kd 0.342 0.75 it/s epoch 1.12 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5875 ce 0.161 kd 0.340 0.75 it/s epoch 1.12 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5900 ce 0.174 kd 0.345 0.75 it/s epoch 1.13 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5925 ce 0.172 kd 0.339 0.75 it/s epoch 1.13 mps 13.3GB disk 22.6GB batt (True, 100)
+step 5950 ce 0.167 kd 0.324 0.75 it/s epoch 1.14 mps 12.1GB disk 22.6GB batt (True, 100)
+step 5975 ce 0.179 kd 0.329 0.75 it/s epoch 1.14 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6000 ce 0.183 kd 0.335 0.75 it/s epoch 1.14 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6025 ce 0.192 kd 0.353 0.75 it/s epoch 1.15 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6050 ce 0.172 kd 0.339 0.75 it/s epoch 1.15 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6075 ce 0.193 kd 0.340 0.75 it/s epoch 1.16 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6100 ce 0.164 kd 0.320 0.75 it/s epoch 1.16 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6125 ce 0.170 kd 0.342 0.75 it/s epoch 1.17 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6150 ce 0.174 kd 0.327 0.75 it/s epoch 1.17 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6175 ce 0.192 kd 0.330 0.75 it/s epoch 1.18 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6200 ce 0.175 kd 0.348 0.75 it/s epoch 1.18 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6225 ce 0.172 kd 0.329 0.75 it/s epoch 1.19 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6250 ce 0.161 kd 0.308 0.75 it/s epoch 1.19 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6275 ce 0.185 kd 0.340 0.75 it/s epoch 1.20 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6300 ce 0.178 kd 0.339 0.75 it/s epoch 1.20 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6325 ce 0.192 kd 0.326 0.75 it/s epoch 1.21 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6350 ce 0.179 kd 0.337 0.75 it/s epoch 1.21 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6375 ce 0.174 kd 0.327 0.75 it/s epoch 1.22 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6400 ce 0.179 kd 0.328 0.75 it/s epoch 1.22 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6425 ce 0.161 kd 0.318 0.75 it/s epoch 1.23 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6450 ce 0.171 kd 0.331 0.75 it/s epoch 1.23 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6475 ce 0.159 kd 0.328 0.75 it/s epoch 1.24 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6500 ce 0.177 kd 0.334 0.75 it/s epoch 1.24 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6525 ce 0.192 kd 0.343 0.75 it/s epoch 1.24 mps 13.2GB disk 22.6GB batt (True, 100)
+step 6550 ce 0.182 kd 0.326 0.75 it/s epoch 1.25 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6575 ce 0.186 kd 0.328 0.75 it/s epoch 1.25 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6600 ce 0.157 kd 0.324 0.75 it/s epoch 1.26 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6625 ce 0.163 kd 0.323 0.75 it/s epoch 1.26 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6650 ce 0.193 kd 0.320 0.75 it/s epoch 1.27 mps 13.2GB disk 22.6GB batt (True, 100)
+step 6675 ce 0.190 kd 0.330 0.75 it/s epoch 1.27 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6700 ce 0.184 kd 0.336 0.75 it/s epoch 1.28 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6725 ce 0.185 kd 0.336 0.75 it/s epoch 1.28 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6750 ce 0.168 kd 0.312 0.75 it/s epoch 1.29 mps 13.2GB disk 22.6GB batt (True, 100)
+step 6775 ce 0.168 kd 0.319 0.75 it/s epoch 1.29 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6800 ce 0.195 kd 0.311 0.75 it/s epoch 1.30 mps 12.1GB disk 22.6GB batt (True, 100)
+step 6825 ce 0.183 kd 0.331 0.75 it/s epoch 1.30 mps 13.3GB disk 22.6GB batt (True, 100)
+step 6850 ce 0.187 kd 0.316 0.75 it/s epoch 1.31 mps 14.2GB disk 22.6GB batt (True, 100)
+step 6875 ce 0.155 kd 0.312 0.75 it/s epoch 1.31 mps 14.4GB disk 22.6GB batt (True, 100)
+step 6900 ce 0.166 kd 0.321 0.75 it/s epoch 1.32 mps 13.2GB disk 22.6GB batt (True, 100)
+step 6925 ce 0.180 kd 0.328 0.74 it/s epoch 1.32 mps 14.4GB disk 22.6GB batt (True, 100)
+step 6950 ce 0.165 kd 0.316 0.74 it/s epoch 1.33 mps 13.2GB disk 22.6GB batt (True, 100)
+step 6975 ce 0.164 kd 0.298 0.74 it/s epoch 1.33 mps 14.4GB disk 22.6GB batt (True, 100)
+step 7000 ce 0.172 kd 0.319 0.74 it/s epoch 1.34 mps 12.1GB disk 22.6GB batt (True, 100)
+step 7025 ce 0.175 kd 0.315 0.74 it/s epoch 1.34 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7050 ce 0.171 kd 0.349 0.74 it/s epoch 1.34 mps 12.1GB disk 22.6GB batt (True, 100)
+step 7075 ce 0.166 kd 0.298 0.74 it/s epoch 1.35 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7100 ce 0.151 kd 0.329 0.74 it/s epoch 1.35 mps 12.1GB disk 22.6GB batt (True, 100)
+step 7125 ce 0.160 kd 0.319 0.74 it/s epoch 1.36 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7150 ce 0.187 kd 0.320 0.74 it/s epoch 1.36 mps 13.2GB disk 22.6GB batt (True, 100)
+step 7175 ce 0.154 kd 0.308 0.74 it/s epoch 1.37 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7200 ce 0.168 kd 0.315 0.74 it/s epoch 1.37 mps 13.2GB disk 22.6GB batt (True, 100)
+step 7225 ce 0.195 kd 0.327 0.74 it/s epoch 1.38 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7250 ce 0.166 kd 0.340 0.74 it/s epoch 1.38 mps 12.1GB disk 22.6GB batt (True, 100)
+step 7275 ce 0.167 kd 0.322 0.74 it/s epoch 1.39 mps 13.3GB disk 22.6GB batt (True, 100)
+step 7300 ce 0.181 kd 0.309 0.74 it/s epoch 1.39 mps 12.1GB disk 22.6GB batt (True, 100)
+step 7325 ce 0.180 kd 0.311 0.74 it/s epoch 1.40 mps 13.3GB disk 21.6GB batt (True, 100)
+step 7350 ce 0.167 kd 0.310 0.74 it/s epoch 1.40 mps 12.1GB disk 22.0GB batt (True, 100)
+step 7375 ce 0.158 kd 0.300 0.74 it/s epoch 1.41 mps 13.3GB disk 22.0GB batt (True, 100)
+step 7400 ce 0.154 kd 0.299 0.74 it/s epoch 1.41 mps 12.1GB disk 21.9GB batt (True, 100)
+step 7425 ce 0.162 kd 0.311 0.74 it/s epoch 1.42 mps 13.3GB disk 21.9GB batt (True, 100)
+step 7450 ce 0.175 kd 0.309 0.74 it/s epoch 1.42 mps 13.2GB disk 21.8GB batt (True, 100)
+step 7475 ce 0.155 kd 0.307 0.74 it/s epoch 1.43 mps 13.3GB disk 21.4GB batt (True, 100)
+step 7500 ce 0.168 kd 0.301 0.74 it/s epoch 1.43 mps 13.2GB disk 21.4GB batt (True, 100)
+step 7525 ce 0.166 kd 0.304 0.74 it/s epoch 1.44 mps 13.3GB disk 21.4GB batt (True, 100)
+step 7550 ce 0.156 kd 0.298 0.74 it/s epoch 1.44 mps 12.1GB disk 21.4GB batt (True, 100)
+step 7575 ce 0.159 kd 0.326 0.74 it/s epoch 1.45 mps 13.3GB disk 21.4GB batt (True, 100)
+step 7600 ce 0.181 kd 0.319 0.74 it/s epoch 1.45 mps 12.1GB disk 21.4GB batt (True, 100)
+step 7625 ce 0.152 kd 0.305 0.74 it/s epoch 1.45 mps 13.3GB disk 21.4GB batt (True, 100)
+step 7650 ce 0.189 kd 0.312 0.74 it/s epoch 1.46 mps 12.1GB disk 21.4GB batt (True, 100)
+step 7675 ce 0.193 kd 0.305 0.74 it/s epoch 1.46 mps 13.3GB disk 21.4GB batt (True, 100)
+step 7700 ce 0.183 kd 0.311 0.74 it/s epoch 1.47 mps 12.1GB disk 21.4GB batt (True, 100)
+step 7725 ce 0.173 kd 0.302 0.74 it/s epoch 1.47 mps 13.2GB disk 21.4GB batt (True, 100)
+step 7750 ce 0.156 kd 0.309 0.74 it/s epoch 1.48 mps 12.1GB disk 21.4GB batt (True, 100)
+step 7775 ce 0.189 kd 0.320 0.74 it/s epoch 1.48 mps 13.3GB disk 22.0GB batt (True, 100)
+step 7800 ce 0.165 kd 0.306 0.74 it/s epoch 1.49 mps 12.1GB disk 21.9GB batt (True, 100)
+step 7825 ce 0.164 kd 0.307 0.74 it/s epoch 1.49 mps 13.3GB disk 22.0GB batt (True, 100)
+step 7850 ce 0.190 kd 0.318 0.74 it/s epoch 1.50 mps 13.2GB disk 21.9GB batt (True, 100)
+step 7875 ce 0.157 kd 0.319 0.74 it/s epoch 1.50 mps 13.3GB disk 22.0GB batt (True, 100)
+step 7900 ce 0.148 kd 0.319 0.74 it/s epoch 1.51 mps 12.1GB disk 22.0GB batt (True, 100)
+step 7925 ce 0.166 kd 0.314 0.74 it/s epoch 1.51 mps 13.3GB disk 21.9GB batt (True, 100)
+step 7950 ce 0.189 kd 0.321 0.73 it/s epoch 1.52 mps 12.1GB disk 21.9GB batt (True, 100)
+step 7975 ce 0.175 kd 0.319 0.73 it/s epoch 1.52 mps 13.3GB disk 21.9GB batt (True, 100)
+step 8000 ce 0.163 kd 0.312 0.73 it/s epoch 1.53 mps 12.1GB disk 21.9GB batt (True, 100)
+step 8025 ce 0.177 kd 0.318 0.73 it/s epoch 1.53 mps 13.3GB disk 21.9GB batt (True, 100)
+step 8050 ce 0.174 kd 0.301 0.73 it/s epoch 1.54 mps 13.2GB disk 21.9GB batt (True, 100)
+step 8075 ce 0.154 kd 0.291 0.73 it/s epoch 1.54 mps 13.3GB disk 21.9GB batt (True, 100)
+step 8100 ce 0.131 kd 0.277 0.73 it/s epoch 1.55 mps 13.2GB disk 21.9GB batt (True, 100)
+step 8125 ce 0.178 kd 0.308 0.73 it/s epoch 1.55 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8150 ce 0.181 kd 0.317 0.73 it/s epoch 1.55 mps 12.1GB disk 21.9GB batt (True, 100)
+step 8175 ce 0.176 kd 0.324 0.73 it/s epoch 1.56 mps 13.3GB disk 21.9GB batt (True, 100)
+step 8200 ce 0.186 kd 0.300 0.73 it/s epoch 1.56 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8225 ce 0.171 kd 0.298 0.73 it/s epoch 1.57 mps 13.2GB disk 22.0GB batt (True, 100)
+step 8250 ce 0.181 kd 0.295 0.73 it/s epoch 1.57 mps 13.2GB disk 22.0GB batt (True, 100)
+step 8275 ce 0.162 kd 0.297 0.73 it/s epoch 1.58 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8300 ce 0.156 kd 0.293 0.73 it/s epoch 1.58 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8325 ce 0.180 kd 0.294 0.73 it/s epoch 1.59 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8350 ce 0.181 kd 0.312 0.73 it/s epoch 1.59 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8375 ce 0.189 kd 0.311 0.73 it/s epoch 1.60 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8400 ce 0.180 kd 0.308 0.73 it/s epoch 1.60 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8425 ce 0.163 kd 0.315 0.73 it/s epoch 1.61 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8450 ce 0.151 kd 0.292 0.73 it/s epoch 1.61 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8475 ce 0.175 kd 0.294 0.73 it/s epoch 1.62 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8500 ce 0.157 kd 0.298 0.73 it/s epoch 1.62 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8525 ce 0.169 kd 0.309 0.73 it/s epoch 1.63 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8550 ce 0.164 kd 0.300 0.73 it/s epoch 1.63 mps 13.2GB disk 22.0GB batt (True, 100)
+step 8575 ce 0.143 kd 0.281 0.73 it/s epoch 1.64 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8600 ce 0.140 kd 0.301 0.73 it/s epoch 1.64 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8625 ce 0.182 kd 0.300 0.73 it/s epoch 1.65 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8650 ce 0.167 kd 0.301 0.73 it/s epoch 1.65 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8675 ce 0.161 kd 0.288 0.73 it/s epoch 1.65 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8700 ce 0.166 kd 0.293 0.73 it/s epoch 1.66 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8725 ce 0.187 kd 0.303 0.73 it/s epoch 1.66 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8750 ce 0.189 kd 0.302 0.73 it/s epoch 1.67 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8775 ce 0.175 kd 0.299 0.73 it/s epoch 1.67 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8800 ce 0.172 kd 0.297 0.73 it/s epoch 1.68 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8825 ce 0.191 kd 0.291 0.73 it/s epoch 1.68 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8850 ce 0.170 kd 0.311 0.73 it/s epoch 1.69 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8875 ce 0.149 kd 0.293 0.73 it/s epoch 1.69 mps 14.4GB disk 22.0GB batt (True, 100)
+step 8900 ce 0.184 kd 0.308 0.73 it/s epoch 1.70 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8925 ce 0.178 kd 0.297 0.73 it/s epoch 1.70 mps 13.3GB disk 22.0GB batt (True, 100)
+step 8950 ce 0.160 kd 0.307 0.73 it/s epoch 1.71 mps 12.1GB disk 22.0GB batt (True, 100)
+step 8975 ce 0.142 kd 0.283 0.73 it/s epoch 1.71 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9000 ce 0.168 kd 0.289 0.73 it/s epoch 1.72 mps 13.2GB disk 22.0GB batt (True, 100)
+step 9025 ce 0.155 kd 0.289 0.73 it/s epoch 1.72 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9050 ce 0.159 kd 0.287 0.73 it/s epoch 1.73 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9075 ce 0.180 kd 0.311 0.73 it/s epoch 1.73 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9100 ce 0.174 kd 0.312 0.72 it/s epoch 1.74 mps 13.2GB disk 22.0GB batt (True, 100)
+step 9125 ce 0.176 kd 0.306 0.72 it/s epoch 1.74 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9150 ce 0.152 kd 0.283 0.72 it/s epoch 1.75 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9175 ce 0.160 kd 0.304 0.72 it/s epoch 1.75 mps 14.4GB disk 22.0GB batt (True, 100)
+step 9200 ce 0.170 kd 0.304 0.72 it/s epoch 1.76 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9225 ce 0.168 kd 0.311 0.72 it/s epoch 1.76 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9250 ce 0.151 kd 0.266 0.72 it/s epoch 1.76 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9275 ce 0.169 kd 0.309 0.72 it/s epoch 1.77 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9300 ce 0.157 kd 0.292 0.72 it/s epoch 1.77 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9325 ce 0.171 kd 0.308 0.72 it/s epoch 1.78 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9350 ce 0.185 kd 0.318 0.72 it/s epoch 1.78 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9375 ce 0.190 kd 0.307 0.72 it/s epoch 1.79 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9400 ce 0.145 kd 0.282 0.72 it/s epoch 1.79 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9425 ce 0.170 kd 0.286 0.72 it/s epoch 1.80 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9450 ce 0.169 kd 0.298 0.72 it/s epoch 1.80 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9475 ce 0.197 kd 0.309 0.72 it/s epoch 1.81 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9500 ce 0.167 kd 0.287 0.72 it/s epoch 1.81 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9525 ce 0.176 kd 0.290 0.72 it/s epoch 1.82 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9550 ce 0.173 kd 0.282 0.72 it/s epoch 1.82 mps 13.2GB disk 22.0GB batt (True, 100)
+step 9575 ce 0.171 kd 0.310 0.72 it/s epoch 1.83 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9600 ce 0.145 kd 0.282 0.72 it/s epoch 1.83 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9625 ce 0.163 kd 0.286 0.72 it/s epoch 1.84 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9650 ce 0.163 kd 0.281 0.72 it/s epoch 1.84 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9675 ce 0.201 kd 0.304 0.72 it/s epoch 1.85 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9700 ce 0.162 kd 0.301 0.72 it/s epoch 1.85 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9725 ce 0.174 kd 0.293 0.72 it/s epoch 1.86 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9750 ce 0.162 kd 0.280 0.72 it/s epoch 1.86 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9775 ce 0.166 kd 0.302 0.72 it/s epoch 1.86 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9800 ce 0.174 kd 0.296 0.72 it/s epoch 1.87 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9825 ce 0.184 kd 0.291 0.72 it/s epoch 1.87 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9850 ce 0.167 kd 0.295 0.72 it/s epoch 1.88 mps 12.1GB disk 22.0GB batt (True, 100)
+step 9875 ce 0.169 kd 0.291 0.72 it/s epoch 1.88 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9900 ce 0.163 kd 0.281 0.72 it/s epoch 1.89 mps 13.2GB disk 22.0GB batt (True, 100)
+step 9925 ce 0.152 kd 0.288 0.72 it/s epoch 1.89 mps 13.3GB disk 22.0GB batt (True, 100)
+step 9950 ce 0.169 kd 0.288 0.72 it/s epoch 1.90 mps 13.1GB disk 22.0GB batt (True, 100)
+step 9975 ce 0.156 kd 0.291 0.72 it/s epoch 1.90 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10000 ce 0.149 kd 0.285 0.72 it/s epoch 1.91 mps 12.1GB disk 22.0GB batt (True, 100)
+step 10025 ce 0.148 kd 0.294 0.72 it/s epoch 1.91 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10050 ce 0.178 kd 0.300 0.72 it/s epoch 1.92 mps 13.2GB disk 22.0GB batt (True, 100)
+step 10075 ce 0.162 kd 0.285 0.72 it/s epoch 1.92 mps 14.4GB disk 22.0GB batt (True, 100)
+step 10100 ce 0.166 kd 0.281 0.72 it/s epoch 1.93 mps 13.2GB disk 22.0GB batt (True, 100)
+step 10125 ce 0.197 kd 0.298 0.72 it/s epoch 1.93 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10150 ce 0.149 kd 0.286 0.72 it/s epoch 1.94 mps 13.2GB disk 22.0GB batt (True, 100)
+step 10175 ce 0.140 kd 0.290 0.72 it/s epoch 1.94 mps 14.4GB disk 22.0GB batt (True, 100)
+step 10200 ce 0.187 kd 0.292 0.72 it/s epoch 1.95 mps 12.1GB disk 22.0GB batt (True, 100)
+step 10225 ce 0.178 kd 0.295 0.72 it/s epoch 1.95 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10250 ce 0.154 kd 0.282 0.72 it/s epoch 1.96 mps 12.1GB disk 22.0GB batt (True, 100)
+step 10275 ce 0.153 kd 0.284 0.72 it/s epoch 1.96 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10300 ce 0.155 kd 0.290 0.72 it/s epoch 1.96 mps 12.1GB disk 22.0GB batt (True, 100)
+step 10325 ce 0.169 kd 0.291 0.72 it/s epoch 1.97 mps 13.3GB disk 22.0GB batt (True, 100)
+step 10350 ce 0.173 kd 0.303 0.72 it/s epoch 1.97 mps 12.1GB disk 22.0GB batt (True, 100)
+done: 10354 steps, 2.0 epochs, saved work/more/student
