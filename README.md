@@ -37,6 +37,29 @@ Same units and method as the Serbian tests. The student beats `small` in all six
 
 **Serbian forms:** the student sometimes writes a Serbian form, such as *predsednik* for *predsjednik*. On parliament that was 18 of 454 words containing *je*, against 11 for `small` and 2 for turbo. On FLEURS it was 18 of 1,189, against 21 and 8. This counts misspellings such as *dule* for *dulje* too.
 
+## CPU
+
+Serbian, 30 FLEURS and 30 parliament clips (700 s), whisper.cpp 1.9.6 built without Metal, Accelerate or BLAS, 4 threads, on an M4 Max. Speed is audio time divided by processing time, so 4.9 means 4.9 times faster than real time. Shortened context is `audio_ctx` set to the clip length plus one second.
+
+| Model | MB | Speed, full | Speed, shortened | Typical clip, full | Memory, full | WER, full: FLEURS / parliament |
+|---|---|---|---|---|---|---|
+| Parakeet TDT 0.6B v3, q8_0 | 669 | 37 | - | 0.3 s | - | 21.0 / 13.7 |
+| **Student, q8_0** | 264 | **12.8** | **28.6** | 0.9 s | 443 MB | 28.7 / 21.5 |
+| Whisper small, q8_0 | 264 | 12.7 | 28.6 | 0.9 s | 443 MB | 41.6 / 28.2 |
+| Student, q5_1 | 190 | 5.8 | 13.3 | 2.0 s | 370 MB | 28.7 / 22.2 |
+| Whisper small, q5_1 | 190 | 5.7 | 13.0 | 2.0 s | 370 MB | 44.3 / 28.0 |
+| Student, f16 (published) | 488 | 4.9 | 10.9 | 2.4 s | 653 MB | 28.9 / 22.2 |
+| Whisper small, f16 | 488 | 4.9 | 10.8 | 2.3 s | 653 MB | 43.2 / 29.0 |
+| Whisper large-v3-turbo, q5_0 | 574 | 1.2 | 2.9 | 9.6 s | 760 MB | 15.6 / 13.9 |
+| Whisper large-v3-turbo, f16 | 1,624 | 0.9 | 2.2 | 13.0 s | 1,760 MB | 17.2 / 12.6 |
+
+- **q8_0** was 2.6 times as fast as f16 with no accuracy loss visible on these clips. The gain uses the chip's 8-bit instructions, so it will differ on Intel and AMD.
+- **Accuracy** is from 30 clips per test, so it only compares models with each other. The 400-clip and 150-clip scores above are the better estimates.
+- **Parakeet** ran through its command-line tool, so its speed leaves out startup and any server. It rewrites Serbian in Croatian forms, which count as errors.
+- **Stability:** the student was run again at the end and gave the same speeds.
+
+Reproduce it with `cpu_benchmark.py`; raw results are in `results/cpu.tsv`.
+
 ## Three languages
 
 Word error rate in %, lower is better. 100 FLEURS test clips per language, whisper.cpp 1.9.6, language given, Serbian compared in Latin script.
@@ -78,6 +101,7 @@ PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.6 PYTORCH_MPS_LOW_WATERMARK_RATIO=0.5 python 
 python benchmark.py student=models/ggml-small-sr-distill.bin --checks
 python speech_tests.py student=models/ggml-small-sr-distill.bin --lang sr
 python speech_tests.py student=models/ggml-small-sr-distill.bin --lang hr
+python cpu_benchmark.py student=models/ggml-small-sr-distill.bin
 ```
 
 `speech_tests.py` downloads the parliament file and the FLEURS test set, about 900 MB per language, on its first run.
