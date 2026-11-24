@@ -37,6 +37,21 @@ Same units and method as the Serbian tests. The student beats `small` in all six
 
 **Serbian forms:** the student sometimes writes a Serbian form, such as *predsednik* for *predsjednik*. On parliament that was 18 of 454 words containing *je*, against 11 for `small` and 2 for turbo. On FLEURS it was 18 of 1,189, against 21 and 8. This counts misspellings such as *dule* for *dulje* too.
 
+## Quantized q8_0
+
+`ggml-small-sr-distill-q8_0.bin` is 264 MB instead of 488 MB and scores the same as f16 in these tests (word error rate in %, same clips as above):
+
+| Test | Clips per language | Serbian q8_0 | Serbian f16 | Croatian q8_0 | Croatian f16 |
+|---|---|---|---|---|---|
+| FLEURS | 400 | 24.4 | 24.6 | 24.3 | 24.3 |
+| Parliament | 150 | 22.2 | 22.1 | 29.6 | 29.6 |
+| FLEURS + pink noise, 10 dB | 100 | 29.4 | 29.1 | 37.8 | 37.9 |
+| FLEURS + pink noise, 5 dB | 100 | 36.4 | 36.3 | 52.1 | 52.6 |
+| FLEURS, shortened context | 100 | 28.5 | 27.9 | 26.4 | 25.8 |
+| Parliament, shortened context | 100 | 22.1 | 22.4 | 30.2 | 30.0 |
+
+On an M4 Max CPU with 4 threads and no Accelerate it was 2.6 times as fast as f16, and used 443–497 MB of memory against 653 MB. Speed on Intel and AMD is untested. These scores are from the Metal build, like the f16 ones.
+
 ## CPU
 
 Serbian, 30 FLEURS and 30 parliament clips (700 s), whisper.cpp 1.9.6 built without Metal, Accelerate or BLAS, 4 threads, on an M4 Max. Speed is audio time divided by processing time, so 4.9 means 4.9 times faster than real time. Shortened context is `audio_ctx` set to the clip length plus one second.
@@ -58,7 +73,7 @@ Serbian, 30 FLEURS and 30 parliament clips (700 s), whisper.cpp 1.9.6 built with
 - **Parakeet** ran through its command-line tool, so its speed leaves out startup and any server. It rewrites Serbian in Croatian forms, which count as errors.
 - **Stability:** the student was run again at the end and gave the same speeds.
 
-Reproduce it with `cpu_benchmark.py`; raw results are in `results/cpu.tsv`.
+Reproduce it with `cpu_benchmark.py`; raw results are in `results/cpu.tsv`. The q8_0 file is made with `whisper-quantize models/ggml-small-sr-distill.bin models/ggml-small-sr-distill-q8_0.bin q8_0`.
 
 ## Three languages
 
@@ -71,7 +86,7 @@ Word error rate in %, lower is better. 100 FLEURS test clips per language, whisp
 | Parakeet TDT 0.6B v3, q8_0 | 21.2 | 10.9 | 5.8 |
 | Whisper large-v3-turbo (teacher) | 12.4 | 11.1 | 5.5 |
 
-Raw numbers are in `results/`: `serbian_tests.txt` and `croatian_tests.txt` for the tests above, `student.tsv` and `baselines.tsv` for this table. Parakeet's Serbian output uses Croatian forms, which this score counts as errors.
+Raw numbers are in `results/`: `serbian_tests.txt`, `croatian_tests.txt` and `q8_0_tests.txt` for the tests above, `cpu.tsv` for CPU, `student.tsv` and `baselines.tsv` for this table. Parakeet's Serbian output uses Croatian forms, which this score counts as errors.
 
 ## Limits
 
