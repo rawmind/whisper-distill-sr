@@ -39,7 +39,7 @@ Same units and method as the Serbian tests. The student beats `small` in all six
 
 ## Quantized q8_0
 
-`ggml-small-sr-distill-q8_0.bin` is 264 MB instead of 488 MB and scores the same as f16 in these tests (word error rate in %, same clips as above):
+`ggml-small-sr-distill-q8_0.bin` is 264 MB instead of 488 MB and scores within 0.6 points of f16 in all these tests (word error rate in %, same clips as above):
 
 | Test | Clips per language | Serbian q8_0 | Serbian f16 | Croatian q8_0 | Croatian f16 |
 |---|---|---|---|---|---|
