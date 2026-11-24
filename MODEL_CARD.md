@@ -19,7 +19,7 @@ tags:
 # whisper-small-sr-distill
 
 Whisper small, distilled from Whisper large-v3-turbo for Serbian. Same size and speed as `small`, with fewer errors in Serbian and Croatian.
-An experiment, not a production model.
+Better than Whisper `small` in Serbian and Croatian in our tests, and smaller in its q8_0 version (264 MB), but far behind large-v3-turbo. Not tested on real video with music or several speakers. Set the language; auto-detection is unreliable.
 
 **Training code and raw results:** [rawmind/whisper-distill-sr](https://github.com/rawmind/whisper-distill-sr) on GitHub.
 
