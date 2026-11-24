@@ -51,7 +51,7 @@ def rows(root, folder, lang, limit, test_texts):
             skipped += 1
             continue
         text = latin(cols[2]) if lang == "sr" else cols[2]
-        items.append({"wav": str(wavs[cols[1]]), "text": text.strip(), "lang": lang})
+        items.append({"wav": str(wavs[cols[1]]), "text": text.strip(), "lang": lang, "parliament": folder.startswith("parla")})
     random.Random(1).shuffle(items)
     print(folder, "usable", len(items), "skipped as test overlap", skipped, flush=True)
     return items[:limit]
@@ -72,19 +72,24 @@ def tokens(tok, text, lang):
 
 def precompute(args, items):
     cache = Path(args.work) / "teacher.pt"
+    out = []
     if cache.exists():
         data = torch.load(cache)
         key = [(i["text"], i["lang"]) for i in items]
-        if [(i["text"], i["lang"]) for i in data["items"]] == key:
+        cached = [(i["text"], i["lang"]) for i in data["items"]]
+        if cached == key:
             return {"items": items, "targets": data["targets"]}
-        print("cached teacher targets do not match this data, recomputing", flush=True)
+        if cached == key[: len(cached)]:
+            out = data["targets"]
+            print("resuming teacher pass at", len(out), flush=True)
+        else:
+            print("cached teacher targets do not match this data, recomputing", flush=True)
     tt = WhisperTokenizer.from_pretrained(TEACHER)
     fe = WhisperFeatureExtractor.from_pretrained(TEACHER)
     model = WhisperForConditionalGeneration.from_pretrained(TEACHER, dtype=torch.float16).to(DEVICE).eval()
-    out = []
     start = time.time()
     with torch.no_grad():
-        for i in range(0, len(items), 8):
+        for i in range(len(out), len(items), 8):
             if low_power() or low_disk(args.work):
                 print("battery or disk low, stopping teacher pass", flush=True)
                 break
@@ -101,7 +106,10 @@ def precompute(args, items):
             vals, idx = top.values.cpu(), top.indices.cpu()
             for j, t in enumerate(ids):
                 n = len(t) - 1
-                out.append({"vals": vals[j, 3:n].half(), "idx": idx[j, 3:n].int(), "n": n - 3})
+                nll = F.cross_entropy(text_logits[j, 3:n], torch.tensor(t[PREFIX:], device=DEVICE)).item()
+                out.append({"vals": vals[j, 3:n].half(), "idx": idx[j, 3:n].int(), "n": n - 3, "nll": nll})
+            if len(out) % 4000 < 8:
+                torch.save({"items": items[: len(out)], "targets": out}, cache)
             if i % 160 == 0:
                 torch.mps.empty_cache()
                 print(f"teacher {i + len(batch)}/{len(items)} {time.time() - start:.0f}s", flush=True)
@@ -110,6 +118,16 @@ def precompute(args, items):
     del model
     torch.mps.empty_cache()
     return out
+
+
+def drop_mismatched(data, share):
+    scores = sorted(t["nll"] for i, t in zip(data["items"], data["targets"]) if i["parliament"])
+    if not scores or not share:
+        return data
+    limit = scores[int(len(scores) * (1 - share)) - 1]
+    keep = [k for k, (i, t) in enumerate(zip(data["items"], data["targets"])) if not i["parliament"] or t["nll"] <= limit]
+    print(f"dropped {len(data['items']) - len(keep)} parliament clips with teacher loss above {limit:.2f}, median {scores[len(scores) // 2]:.2f}", flush=True)
+    return {"items": [data["items"][k] for k in keep], "targets": [data["targets"][k] for k in keep]}
 
 
 def train(args, data):
@@ -211,13 +229,20 @@ def main():
     p.add_argument("--lr", type=float, default=2e-5)
     p.add_argument("--accum", type=int, default=2)
     p.add_argument("--alpha", type=float, default=0.5)
+    p.add_argument("--parliament", action="store_true", help="also train on data/train/parla_sr and parla_hr from prepare_parliament.py")
+    p.add_argument("--drop", type=float, default=0.1, help="share of parliament clips to drop, those the teacher finds least likely")
     args = p.parse_args()
     Path(args.work).mkdir(parents=True, exist_ok=True)
     test_texts = {r[3].strip() for lang in LANGS for r in read_tsv(Path(args.test) / lang / "test.tsv")}
     root = Path(args.data)
     items = rows(root, "sr_rs", "sr", args.sr, test_texts) + rows(root, "hr_hr", "hr", args.hr, test_texts) + rows(root, "en_us", "en", args.en, test_texts)
+    if args.parliament:
+        for lang in ("sr", "hr"):
+            refs = Path(args.test).parent / "speech" / lang / "parliament" / "refs.tsv"
+            test_texts |= {line.split("\t")[1].strip() for line in refs.read_text().splitlines()}
+        items += rows(root, "parla_sr", "sr", 1000000, test_texts) + rows(root, "parla_hr", "hr", 1000000, test_texts)
     random.Random(2).shuffle(items)
-    data = precompute(args, items)
+    data = drop_mismatched(precompute(args, items), args.drop)
     print("train clips", len(data["items"]), flush=True)
     train(args, data)
 

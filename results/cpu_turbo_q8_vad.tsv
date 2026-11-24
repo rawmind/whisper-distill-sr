@@ -1,0 +1,19 @@
+# arm64 Darwin threads 4 language sr clips 60 audio 700 s
+model	MB	context	WER fleurs	WER parliament	real-time factor	median ms	p95 ms	load s	memory MB
+# turbo-q8_0 on silence and noise	['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala.', 'Hvala.']
+turbo-q8_0	874	full	17.0	12.5	0.296	3421	3650	0.5	1050
+turbo-q8_0	874	short	23.5	18.9	0.110	1166	2445	0.5	1049
+# arm64 Darwin threads 4 language sr clips 60 audio 700 s
+model	MB	context	WER fleurs	WER parliament	real-time factor	median ms	p95 ms	load s	memory MB
+# student-q8_0 on silence and noise	['ginitma\uf0d3ca nrvПđ SIČVŠ“i.', '(Šeštaj)', '(Š)', '(Šđeštaj)', '(Šđeštaj)']
+student-q8_0	264	full	28.7	21.5	0.079	889	1207	0.5	443
+# small-q8_0 on silence and noise	['[Muzika]', '*svijedna*', '*svijedna*', '*svijedna*', '*svijedna*']
+small-q8_0	264	full	41.6	28.2	0.079	879	1166	0.5	444
+# arm64 Darwin threads 4 language sr clips 60 audio 700 s
+model	MB	context	WER fleurs	WER parliament	real-time factor	median ms	p95 ms	load s	memory MB
+# student-q8_0+vad on silence and noise	['', '', '', '', '']
+student-q8_0+vad	264	full	27.1	21.7	0.081	910	1266	0.5	451
+# small-q8_0+vad on silence and noise	['', '', '', '', '']
+small-q8_0+vad	264	full	43.4	28.7	0.082	927	1248	0.5	450
+# turbo-q8_0+vad on silence and noise	['', '', '', '', '']
+turbo-q8_0+vad	874	full	15.9	13.0	0.301	3485	3695	0.5	1057

@@ -2,14 +2,17 @@ import argparse
 import math
 import os
 import platform
+import shlex
 import statistics
 import subprocess
 import time
 from pathlib import Path
 
+import numpy as np
+
 from benchmark import PORT, post, seconds, wait
 from common import distance, normalize
-from speech_tests import LANGUAGES, fleurs, parliament
+from speech_tests import LANGUAGES, fleurs, parliament, quiet
 
 
 def wer(items, hyps, lang):
@@ -40,7 +43,7 @@ def report(name, size, mode, items, parts, hyps, times, load, rss, lang):
 
 def whisper(args, name, path, modes, items, parts):
     for mode in modes:
-        command = [args.server, "-m", path, "-ng", "-t", str(args.threads), "--host", "127.0.0.1", "--port", str(PORT)]
+        command = [args.server, "-m", path, "-ng", "-t", str(args.threads), "--host", "127.0.0.1", "--port", str(PORT), *shlex.split(args.server_args)]
         begun = time.perf_counter()
         server = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         try:
@@ -54,6 +57,9 @@ def whisper(args, name, path, modes, items, parts):
                 hyps.append(post(wav, language=args.lang, response_format="json", temperature="0", no_language_probabilities="true", **extra)["text"])
                 times.append(time.perf_counter() - begun)
             rss = memory_mb(server.pid)
+            if args.silence and mode == modes[0]:
+                texts = [post(w, language=args.lang, response_format="json", temperature="0")["text"].strip()[:60] for w in quiet(Path(args.data) / args.lang, np.random.default_rng(1))]
+                row(f"# {name} on silence and noise", texts)
         finally:
             server.terminate()
             server.wait()
@@ -91,6 +97,8 @@ def main():
     p.add_argument("--parakeet", help="name=path/to/parakeet.bin")
     p.add_argument("--parakeet-cli", default="parakeet-cli")
     p.add_argument("--lang", choices=LANGUAGES, default="sr")
+    p.add_argument("--server-args", default="", help="extra whisper-server flags")
+    p.add_argument("--silence", action="store_true", help="also transcribe five clips without speech")
     p.add_argument("--threads", type=int, default=4)
     p.add_argument("--clips", type=int, default=30)
     p.add_argument("--modes", default="full,short")

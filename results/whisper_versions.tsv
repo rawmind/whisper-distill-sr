@@ -1,0 +1,109 @@
+whisper.cpp	lang	test	clips	model	WER %	95%
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, full	400	published small-sr-distill f16	24.4	23.1-25.8
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, full	150	published small-sr-distill f16	22.1	20.3-24.1
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	published small-sr-distill f16	29.1	26.6-31.7
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	published small-sr-distill f16	36.1	33.0-39.1
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, shortened context	100	published small-sr-distill f16	42.4	31.1-57.4
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, shortened context	100	published small-sr-distill f16	28.4	23.7-35.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, full	400	student_improved f16	17.4	16.4-18.5
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, full	150	student_improved f16	10.7	9.3-12.2
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	student_improved f16	22.2	19.6-24.7
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	student_improved f16	28.5	25.6-31.5
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, shortened context	100	student_improved f16	20.5	17.9-23.4
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, shortened context	100	student_improved f16	14.9	12.9-17.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, full	400	student_improved q8_0	17.4	16.4-18.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, full	150	student_improved q8_0	10.9	9.6-12.5
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	student_improved q8_0	22.5	19.9-25.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	student_improved q8_0	28.7	25.7-31.7
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	FLEURS, shortened context	100	student_improved q8_0	19.9	17.4-22.3
+Homebrew 1.9.5_2 (ggml 1.0.0)	sr	parliament, shortened context	100	student_improved q8_0	15.0	13.0-17.1
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, full	400	published small-sr-distill f16	24.2	22.9-25.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, full	150	published small-sr-distill f16	29.7	27.1-31.9
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	published small-sr-distill f16	38.3	35.6-41.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	published small-sr-distill f16	53.2	49.7-56.9
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, shortened context	100	published small-sr-distill f16	46.3	31.2-64.9
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, shortened context	100	published small-sr-distill f16	37.0	30.3-46.2
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, full	400	student_improved f16	17.9	16.8-19.2
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, full	150	student_improved f16	15.7	13.8-17.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	student_improved f16	30.1	27.3-33.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	student_improved f16	48.0	44.3-51.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, shortened context	100	student_improved f16	21.8	18.6-25.4
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, shortened context	100	student_improved f16	17.9	15.4-20.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, full	400	student_improved q8_0	18.0	16.8-19.2
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, full	150	student_improved q8_0	15.6	13.7-17.6
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	student_improved q8_0	30.2	27.3-33.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	student_improved q8_0	48.3	44.5-52.0
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	FLEURS, shortened context	100	student_improved q8_0	22.4	18.7-27.2
+Homebrew 1.9.5_2 (ggml 1.0.0)	hr	parliament, shortened context	100	student_improved q8_0	17.9	15.4-20.6
+1.9.5 source (ggml 0.26.0)	sr	FLEURS, shortened context	100	published small-sr-distill f16	33.0	29.3-37.7
+1.9.5 source (ggml 0.26.0)	sr	parliament, shortened context	100	published small-sr-distill f16	32.4	24.6-42.8
+1.9.5 source (ggml 0.26.0)	sr	FLEURS first 100, full	100	published small-sr-distill f16	25.2	22.9-27.8
+1.9.5 source (ggml 0.26.0)	sr	FLEURS, shortened context	100	student_improved f16	20.1	17.5-22.9
+1.9.5 source (ggml 0.26.0)	sr	parliament, shortened context	100	student_improved f16	14.5	12.6-16.5
+1.9.5 source (ggml 0.26.0)	sr	FLEURS first 100, full	100	student_improved f16	17.2	15.1-19.4
+1.9.5 source (ggml 0.26.0)	sr	FLEURS, shortened context	100	student_improved q8_0	19.6	17.3-22.0
+1.9.5 source (ggml 0.26.0)	sr	parliament, shortened context	100	student_improved q8_0	14.7	12.8-16.7
+1.9.5 source (ggml 0.26.0)	sr	FLEURS first 100, full	100	student_improved q8_0	16.9	14.9-19.1
+1.9.5 source (ggml 0.26.0)	hr	FLEURS, shortened context	100	published small-sr-distill f16	47.7	33.1-65.5
+1.9.5 source (ggml 0.26.0)	hr	parliament, shortened context	100	published small-sr-distill f16	34.9	29.8-41.1
+1.9.5 source (ggml 0.26.0)	hr	FLEURS first 100, full	100	published small-sr-distill f16	24.9	22.4-27.4
+1.9.5 source (ggml 0.26.0)	hr	FLEURS, shortened context	100	student_improved f16	22.2	19.0-25.9
+1.9.5 source (ggml 0.26.0)	hr	parliament, shortened context	100	student_improved f16	18.2	15.4-21.1
+1.9.5 source (ggml 0.26.0)	hr	FLEURS first 100, full	100	student_improved f16	19.2	16.5-21.7
+1.9.5 source (ggml 0.26.0)	hr	FLEURS, shortened context	100	student_improved q8_0	22.0	18.8-25.6
+1.9.5 source (ggml 0.26.0)	hr	parliament, shortened context	100	student_improved q8_0	17.9	15.3-20.6
+1.9.5 source (ggml 0.26.0)	hr	FLEURS first 100, full	100	student_improved q8_0	19.3	16.6-21.8
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	published small-sr-distill f16	27.9	24.4-32.2
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	published small-sr-distill f16	22.4	20.0-25.0
+1.9.6 source (ggml 1.0.0)	sr	FLEURS first 100, full	100	published small-sr-distill f16	24.6	22.4-27.0
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	student_improved f16	16.4	14.4-18.5
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	student_improved f16	11.3	9.6-13.3
+1.9.6 source (ggml 1.0.0)	sr	FLEURS first 100, full	100	student_improved f16	16.4	14.4-18.5
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	student_improved q8_0	16.5	14.6-18.6
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	student_improved q8_0	11.4	9.6-13.4
+1.9.6 source (ggml 1.0.0)	sr	FLEURS first 100, full	100	student_improved q8_0	16.3	14.3-18.3
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	published small-sr-distill f16	25.8	23.0-28.9
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	published small-sr-distill f16	30.0	27.2-32.9
+1.9.6 source (ggml 1.0.0)	hr	FLEURS first 100, full	100	published small-sr-distill f16	23.7	21.3-26.2
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	student_improved f16	18.1	15.9-20.3
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	student_improved f16	15.4	13.1-17.7
+1.9.6 source (ggml 1.0.0)	hr	FLEURS first 100, full	100	student_improved f16	17.8	15.3-20.0
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	student_improved q8_0	18.0	15.7-20.2
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	student_improved q8_0	15.2	12.9-17.5
+1.9.6 source (ggml 1.0.0)	hr	FLEURS first 100, full	100	student_improved q8_0	17.8	15.3-20.1
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, full	400	large-v3-turbo f16	13.2	12.4-14.2
+1.9.6 source (ggml 1.0.0)	sr	parliament, full	150	large-v3-turbo f16	10.1	8.8-11.5
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	large-v3-turbo f16	16.9	14.9-19.0
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	large-v3-turbo f16	19.9	17.7-22.2
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	large-v3-turbo f16	22.1	16.7-28.2
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	large-v3-turbo f16	15.9	12.9-19.7
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, full	400	student_improved f16	17.4	16.3-18.5
+1.9.6 source (ggml 1.0.0)	sr	parliament, full	150	student_improved f16	10.3	9.0-11.9
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	student_improved f16	22.2	19.6-24.8
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	student_improved f16	28.5	25.5-31.3
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	student_improved f16	16.4	14.4-18.5
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	student_improved f16	11.3	9.6-13.3
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, full	400	published small-sr-distill f16	24.6	23.2-25.9
+1.9.6 source (ggml 1.0.0)	sr	parliament, full	150	published small-sr-distill f16	22.1	20.2-24.0
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 10 dB	100	published small-sr-distill f16	29.1	26.6-31.8
+1.9.6 source (ggml 1.0.0)	sr	FLEURS + pink noise 5 dB	100	published small-sr-distill f16	36.3	33.2-39.4
+1.9.6 source (ggml 1.0.0)	sr	FLEURS, shortened context	100	published small-sr-distill f16	27.9	24.4-32.2
+1.9.6 source (ggml 1.0.0)	sr	parliament, shortened context	100	published small-sr-distill f16	22.4	20.0-25.0
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, full	400	large-v3-turbo f16	11.4	10.4-12.4
+1.9.6 source (ggml 1.0.0)	hr	parliament, full	150	large-v3-turbo f16	13.6	11.9-15.4
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	large-v3-turbo f16	17.7	15.4-19.9
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	large-v3-turbo f16	29.9	26.9-33.1
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	large-v3-turbo f16	16.7	12.5-21.3
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	large-v3-turbo f16	17.4	14.3-20.7
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, full	400	student_improved f16	17.9	16.8-19.1
+1.9.6 source (ggml 1.0.0)	hr	parliament, full	150	student_improved f16	15.9	14.1-17.8
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	student_improved f16	29.6	26.6-32.4
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	student_improved f16	47.3	43.8-51.0
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	student_improved f16	18.1	15.9-20.3
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	student_improved f16	15.4	13.1-17.7
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, full	400	published small-sr-distill f16	24.3	23.0-25.7
+1.9.6 source (ggml 1.0.0)	hr	parliament, full	150	published small-sr-distill f16	29.6	27.1-31.8
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 10 dB	100	published small-sr-distill f16	37.9	35.3-40.7
+1.9.6 source (ggml 1.0.0)	hr	FLEURS + pink noise 5 dB	100	published small-sr-distill f16	52.6	49.2-56.1
+1.9.6 source (ggml 1.0.0)	hr	FLEURS, shortened context	100	published small-sr-distill f16	25.8	23.0-28.9
+1.9.6 source (ggml 1.0.0)	hr	parliament, shortened context	100	published small-sr-distill f16	30.0	27.2-32.9

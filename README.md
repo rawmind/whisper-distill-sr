@@ -65,15 +65,82 @@ Serbian, 30 FLEURS and 30 parliament clips (700 s), whisper.cpp 1.9.6 built with
 | Whisper small, q5_1 | 190 | 5.7 | 13.0 | 2.0 s | 370 MB | 44.3 / 28.0 |
 | Student, f16 (published) | 488 | 4.9 | 10.9 | 2.4 s | 653 MB | 28.9 / 22.2 |
 | Whisper small, f16 | 488 | 4.9 | 10.8 | 2.3 s | 653 MB | 43.2 / 29.0 |
+| Whisper large-v3-turbo, q8_0 | 874 | 3.4 | 9.1 | 3.4 s | 1,050 MB | 17.0 / 12.5 |
 | Whisper large-v3-turbo, q5_0 | 574 | 1.2 | 2.9 | 9.6 s | 760 MB | 15.6 / 13.9 |
 | Whisper large-v3-turbo, f16 | 1,624 | 0.9 | 2.2 | 13.0 s | 1,760 MB | 17.2 / 12.6 |
 
 - **q8_0** was 2.6 times as fast as f16 with no accuracy loss visible on these clips. The gain uses the chip's 8-bit instructions, so it will differ on Intel and AMD.
 - **Accuracy** is from 30 clips per test, so it only compares models with each other. The 400-clip and 150-clip scores above are the better estimates.
 - **Parakeet** ran through its command-line tool, so its speed leaves out startup and any server. It rewrites Serbian in Croatian forms, which count as errors.
-- **Stability:** the student was run again at the end and gave the same speeds.
+- **Stability:** the student was run again at the end and gave the same speeds. Turbo q8_0 comes from a later run, in which the student and `small` q8_0 gave the same speeds and error rates as before.
+- **Turbo q8_0** was 2.8 times as fast as q5_0. About 3.4 times real time on an M4 Max may not be enough on a slower laptop.
 
-Reproduce it with `cpu_benchmark.py`; raw results are in `results/cpu.tsv`. The q8_0 file is made with `whisper-quantize models/ggml-small-sr-distill.bin models/ggml-small-sr-distill-q8_0.bin q8_0`.
+Reproduce it with `cpu_benchmark.py`; raw results are in `results/cpu.tsv` and `results/cpu_turbo_q8_vad.tsv`. The q8_0 file is made with `whisper-quantize models/ggml-small-sr-distill.bin models/ggml-small-sr-distill-q8_0.bin q8_0`.
+
+## Voice detection (VAD)
+
+whisper-server can skip non-speech audio with `--vad --vad-model ggml-silero-v6.2.0.bin` ([Silero](https://huggingface.co/ggml-org/whisper-vad), 0.9 MB). Same CPU and 60 clips as above, full context:
+
+| Model | No-speech clips with text | WER: FLEURS / parliament | Speed |
+|---|---|---|---|
+| Student q8_0 | 5 of 5 | 28.7 / 21.5 | 12.7 |
+| Student q8_0 + VAD | **0 of 5** | 27.1 / 21.7 | 12.4 |
+| Whisper small q8_0 | 5 of 5 | 41.6 / 28.2 | 12.7 |
+| Whisper small q8_0 + VAD | **0 of 5** | 43.4 / 28.7 | 12.2 |
+| Whisper large-v3-turbo q8_0 | 5 of 5 | 17.0 / 12.5 | 3.4 |
+| Whisper large-v3-turbo q8_0 + VAD | **0 of 5** | 15.9 / 13.0 | 3.3 |
+
+**Subtitle timing** was tested on 60 made-up clips of each kind with known speech times: one sentence in an 8 s window, and two sentences with a 1.5–4 s gap. Segment times with the Metal build, in seconds:
+
+| Model | Clips | Starts within 0.5 s | Median start error | Ends within 0.5 s | Subtitle over silence |
+|---|---|---|---|---|---|
+| Student q8_0 | window | 0% → **100%** | 1.98 → **0.03** | 88% → **100%** | 61% → **0%** |
+| Student q8_0 | two sentences | 30% → **52%** | 1.37 → **0.10** | 82% → **99%** | 51% → 44% |
+| large-v3-turbo f16 | window | 3% → **100%** | 1.93 → **0.03** | 67% → **100%** | 73% → **0%** |
+| large-v3-turbo f16 | two sentences | 32% → **61%** | 1.21 → **0.04** | 92% → **99%** | 38% → 21% |
+
+Each cell is without VAD → with VAD. Without it, segments usually start in the silence before the speech, about 1–2 s early. With VAD two sentences can still share one segment, so 39–48% of sentence starts were more than 0.5 s off. VAD also left a little more speech without a subtitle in the window clips (2–5% → 4–7%).
+
+- The no-speech clips are digital silence and plain noise, and the gaps are low noise. Music and background talk are untested and may still get through.
+- Accuracy differences between VAD and no VAD are within the noise of 30 clips per test.
+
+Reproduce with `cpu_benchmark.py --silence --server-args "--vad --vad-model ..."` and `timing_test.py`; raw results are in `results/vad_timing.txt`.
+
+## More training data: student_improved
+
+A second student, trained on 20,968 clips instead of 3,344: the FLEURS clips above, plus 15,248 Serbian and 3,922 Croatian clips from [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) and [ParlaSpeech-HR](https://huggingface.co/datasets/classla/ParlaSpeech-HR), before the worst tenth of the parliament clips was dropped. Same size and architecture. Training took 10,354 steps (2.0 epochs) in 4 hours, after a 2.3-hour teacher pass. **The weights are not published.**
+
+Word error rate in %, whisper.cpp 1.9.6 built from source, same clips as the tables above. The change is against the published student, clip by clip, with a 95% range.
+
+| Test | Clips | Serbian | Change | Turbo | Croatian | Change | Turbo |
+|---|---|---|---|---|---|---|---|
+| FLEURS | 400 | **17.4** | −7.2 (−8.2 to −6.2) | 13.2 | **17.9** | −6.4 (−7.3 to −5.5) | 11.4 |
+| Parliament | 150 | **10.3** | −11.8 (−13.4 to −10.2) | 10.1 | **15.9** | −13.7 (−15.2 to −12.2) | 13.6 |
+| FLEURS + pink noise, 10 dB | 100 | **22.2** | −6.9 (−9.1 to −4.9) | 16.9 | **29.6** | −8.4 (−10.7 to −6.3) | 17.7 |
+| FLEURS + pink noise, 5 dB | 100 | **28.5** | −7.9 (−10.1 to −5.8) | 19.9 | **47.3** | −5.4 (−8.1 to −2.7) | 29.9 |
+| FLEURS, shortened context | 100 | **16.4** | −11.6 (−15.5 to −8.4) | 22.1 | **18.1** | −7.7 (−10.5 to −5.5) | 16.7 |
+| Parliament, shortened context | 100 | **11.3** | −11.1 (−12.9 to −9.4) | 15.9 | **15.4** | −14.6 (−16.9 to −12.5) | 17.4 |
+
+The q8_0 file scored within 0.6 points of f16 in every test where both ran on the same build.
+
+- **Parliament scores are optimistic:** the parliament test files are of the same kind as the training files. Every clip from the test speakers and test dates was excluded from training, as were the test sentences.
+- **Language detection is worse than the published student's, and unusable.** On 50 clips per language it called 41 of 50 Serbian clips English and 33 of 50 Croatian ones, and none of the Serbian ones Serbian. Set the language.
+- **English** is 8.3% against 7.5% for the published student on 100 clips.
+- **Silence:** it writes text on all five Serbian and all five Croatian no-speech clips. Use speech detection.
+- **Music and several people talking** are untested, as before.
+- **Licenses:** the master copies of both ParlaSpeech datasets, on CLARIN.SI ([HR](http://hdl.handle.net/11356/1914), [RS](http://hdl.handle.net/11356/1834)), are CC BY-SA 4.0. Hugging Face lists ParlaSpeech-RS as CC BY 4.0 and no license for ParlaSpeech-HR.
+
+Prepare the data with `prepare_parliament.py` (about 5 GB of downloads, 4 GB kept) and train with `distill.py --work work/more --hr 400 --en 400 --minutes 240 --parliament`. The training log is `results/train_student_improved.log`, the raw scores are in `results/student_improved.txt`.
+
+## whisper.cpp versions
+
+The numbers above are from whisper.cpp 1.9.6. Version matters with a shortened context: 1.9.5 made 2.7 to 21.9 more errors per 100 words than 1.9.6 across three models and both languages, with both built from source on the same clips. At full length it was 0.6 to 1.5 points worse. Homebrew's 1.9.5_2 was far worse on shortened context too. `results/whisper_versions.tsv` has every score with its version.
+
+| Error points 1.9.5 adds over 1.9.6 (95% range) | Serbian FLEURS | Serbian parliament | Croatian FLEURS | Croatian parliament |
+|---|---|---|---|---|
+| Published student, shortened | +5.1 (0.8 to 9.5) | +10.0 (2.5 to 19.9) | +21.9 (7.7 to 39.0) | +4.9 (1.4 to 10.4) |
+| student_improved, shortened | +3.7 (1.9 to 5.7) | +3.2 (2.1 to 4.3) | +4.1 (1.7 to 6.9) | +2.8 (1.2 to 4.6) |
+| student_improved q8_0, shortened | +3.1 (1.7 to 4.5) | +3.3 (2.2 to 4.4) | +4.0 (1.6 to 7.1) | +2.7 (1.1 to 4.5) |
 
 ## Three languages
 
@@ -117,6 +184,7 @@ python benchmark.py student=models/ggml-small-sr-distill.bin --checks
 python speech_tests.py student=models/ggml-small-sr-distill.bin --lang sr
 python speech_tests.py student=models/ggml-small-sr-distill.bin --lang hr
 python cpu_benchmark.py student=models/ggml-small-sr-distill.bin
+python timing_test.py student=models/ggml-small-sr-distill.bin --vad-model ggml-silero-v6.2.0.bin
 ```
 
 `speech_tests.py` downloads the parliament file and the FLEURS test set, about 900 MB per language, on its first run.

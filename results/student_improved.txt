@@ -1,0 +1,81 @@
+whisper.cpp 1.9.6 built from source, GPU (Metal), M4 Max
+
+sr fleurs turbo WER 13.2 words 7855 worst clip errors 10
+sr parliament turbo WER 10.1 words 3763 worst clip errors 13
+sr noise10 turbo WER 16.9 words 1974 worst clip errors 12
+sr noise5 turbo WER 19.9 words 1974 worst clip errors 11
+sr fleurs_short turbo WER 22.1 words 1974 worst clip errors 34
+sr parl_short turbo WER 15.9 words 2560 worst clip errors 27
+sr silence turbo ['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala.', 'Hvala.']
+sr fleurs student_improved WER 17.4 words 7855 worst clip errors 13
+sr parliament student_improved WER 10.3 words 3763 worst clip errors 20
+sr noise10 student_improved WER 22.2 words 1974 worst clip errors 13
+sr noise5 student_improved WER 28.5 words 1974 worst clip errors 18
+sr fleurs_short student_improved WER 16.4 words 1974 worst clip errors 13
+sr parl_short student_improved WER 11.3 words 2560 worst clip errors 17
+sr silence student_improved ['Pilatinak zELAB Routeratska 3. Žukić:', '„', '„', '„', '„']
+sr fleurs published WER 24.6 words 7855 worst clip errors 18
+sr parliament published WER 22.1 words 3763 worst clip errors 20
+sr noise10 published WER 29.1 words 1974 worst clip errors 17
+sr noise5 published WER 36.3 words 1974 worst clip errors 20
+sr fleurs_short published WER 27.9 words 1974 worst clip errors 26
+sr parl_short published WER 22.4 words 2560 worst clip errors 20
+sr silence published ['a sa njemna.\n Hvorérstvira preτε mora ne вдad to do nja nego', '(„eštaj)', '(„eštaj)', '(Šeštaj)', '(Šeštaj)']
+PAIRED sr fleurs: improved minus published -7.2 (95% -8.2 to -6.2)
+PAIRED sr fleurs: improved minus turbo +4.1 (95% +3.2 to +5.1)
+PAIRED sr parliament: improved minus published -11.8 (95% -13.4 to -10.2)
+PAIRED sr parliament: improved minus turbo +0.2 (95% -0.9 to +1.3)
+PAIRED sr noise10: improved minus published -6.9 (95% -9.1 to -4.9)
+PAIRED sr noise10: improved minus turbo +5.3 (95% +2.8 to +7.7)
+PAIRED sr noise5: improved minus published -7.9 (95% -10.1 to -5.8)
+PAIRED sr noise5: improved minus turbo +8.6 (95% +5.9 to +11.1)
+PAIRED sr fleurs_short: improved minus published -11.6 (95% -15.5 to -8.4)
+PAIRED sr fleurs_short: improved minus turbo -5.8 (95% -12.1 to -0.1)
+PAIRED sr parl_short: improved minus published -11.1 (95% -12.9 to -9.4)
+PAIRED sr parl_short: improved minus turbo -4.6 (95% -8.0 to -1.7)
+hr fleurs turbo WER 11.4 words 7778 worst clip errors 12
+hr parliament turbo WER 13.6 words 3763 worst clip errors 15
+hr noise10 turbo WER 17.7 words 1949 worst clip errors 12
+hr noise5 turbo WER 29.9 words 1949 worst clip errors 18
+hr fleurs_short turbo WER 16.7 words 1949 worst clip errors 37
+hr parl_short turbo WER 17.4 words 2507 worst clip errors 22
+hr silence turbo ['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala.', 'Hvala.']
+hr fleurs student_improved WER 17.9 words 7778 worst clip errors 15
+hr parliament student_improved WER 15.9 words 3763 worst clip errors 18
+hr noise10 student_improved WER 29.6 words 1949 worst clip errors 15
+hr noise5 student_improved WER 47.3 words 1949 worst clip errors 21
+hr fleurs_short student_improved WER 18.1 words 1949 worst clip errors 14
+hr parl_short student_improved WER 15.4 words 2507 worst clip errors 19
+hr silence student_improved ['Uđa koliko opprimo da idea tantanije. Unie aproこ već. Avorim', 'Počeo.', 'đešće, nemajte, nemajte.', '35+, 30%, 35%.', 'program je neu BanIF već uютьapterla Resanlace. V회 imirereno']
+hr fleurs published WER 24.3 words 7778 worst clip errors 20
+hr parliament published WER 29.6 words 3763 worst clip errors 24
+hr noise10 published WER 37.9 words 1949 worst clip errors 17
+hr noise5 published WER 52.6 words 1949 worst clip errors 21
+hr fleurs_short published WER 25.8 words 1949 worst clip errors 15
+hr parl_short published WER 30.0 words 2507 worst clip errors 24
+hr silence published ['A liİinskiindustı gešilo erei ljud tet pa oo doseni on posli', '(„eštajne„)', '(Šijem)', '(Šijelj)', '(„eštajne„)']
+PAIRED hr fleurs: improved minus published -6.4 (95% -7.3 to -5.5)
+PAIRED hr fleurs: improved minus turbo +6.5 (95% +5.6 to +7.4)
+PAIRED hr parliament: improved minus published -13.7 (95% -15.2 to -12.2)
+PAIRED hr parliament: improved minus turbo +2.3 (95% +0.9 to +3.7)
+PAIRED hr noise10: improved minus published -8.4 (95% -10.7 to -6.3)
+PAIRED hr noise10: improved minus turbo +11.9 (95% +9.4 to +14.4)
+PAIRED hr noise5: improved minus published -5.4 (95% -8.1 to -2.7)
+PAIRED hr noise5: improved minus turbo +17.4 (95% +14.9 to +20.1)
+PAIRED hr fleurs_short: improved minus published -7.7 (95% -10.5 to -5.5)
+PAIRED hr fleurs_short: improved minus turbo +1.4 (95% -4.2 to +5.6)
+PAIRED hr parl_short: improved minus published -14.6 (95% -16.9 to -12.5)
+PAIRED hr parl_short: improved minus turbo -2.0 (95% -5.1 to +0.6)
+
+published	sr_rs	WER 24.6	words 1974	42x	262 ms/clip
+published	sr_rs	detected [('croatian', 33), ('serbian', 15), ('polish', 2)]	clips with odd timestamps 0
+published	hr_hr	WER 23.6	words 1949	38x	266 ms/clip
+published	hr_hr	detected [('croatian', 47), ('polish', 1), ('serbian', 1), ('english', 1)]	clips with odd timestamps 0
+published	en_us	WER 7.5	words 2236	52x	191 ms/clip
+published	en_us	detected [('english', 50)]	clips with odd timestamps 0
+student_improved	sr_rs	WER 16.4	words 1974	44x	253 ms/clip
+student_improved	sr_rs	detected [('english', 41), ('croatian', 9)]	clips with odd timestamps 0
+student_improved	hr_hr	WER 17.9	words 1949	40x	257 ms/clip
+student_improved	hr_hr	detected [('english', 33), ('croatian', 11), ('polish', 5), ('slovak', 1)]	clips with odd timestamps 0
+student_improved	en_us	WER 8.3	words 2236	58x	171 ms/clip
+student_improved	en_us	detected [('english', 50)]	clips with odd timestamps 0
