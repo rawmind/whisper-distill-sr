@@ -1,0 +1,14 @@
+large-v3	fleurs	400 clips	WER 10.7	95% 9.8-11.7	words 7778	Serbian forms 6/1189
+large-v3	parliament	150 clips	WER 12.3	95% 10.7-14.2	words 3763	Serbian forms 2/454
+large-v3	noise 10 dB	100 clips	WER 17.1	95% 14.8-19.3	words 1949	Serbian forms 5/256
+large-v3	noise 5 dB	100 clips	WER 27.4	95% 24.3-30.3	words 1949	Serbian forms 4/256
+large-v3	fleurs, short context	100 clips	WER 17.7	95% 12.5-24.0	words 1949	Serbian forms 3/256
+large-v3	parliament, short context	100 clips	WER 17.9	95% 13.3-24.1	words 2507	Serbian forms 1/315
+large-v3	silence and noise	['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala što pratite kanal.', 'Hvala što pratite kanal.']
+turbo	fleurs	400 clips	WER 11.4	95% 10.4-12.4	words 7778	Serbian forms 8/1189
+turbo	parliament	150 clips	WER 13.6	95% 11.9-15.4	words 3763	Serbian forms 2/454
+turbo	noise 10 dB	100 clips	WER 17.7	95% 15.4-19.9	words 1949	Serbian forms 6/256
+turbo	noise 5 dB	100 clips	WER 29.9	95% 26.9-33.1	words 1949	Serbian forms 6/256
+turbo	fleurs, short context	100 clips	WER 16.7	95% 12.5-21.3	words 1949	Serbian forms 5/256
+turbo	parliament, short context	100 clips	WER 17.4	95% 14.3-20.7	words 2507	Serbian forms 2/315
+turbo	silence and noise	['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala.', 'Hvala.']
