@@ -23,6 +23,8 @@ Better than Whisper `small` in Serbian and Croatian in our tests, and smaller in
 
 **Training code and raw results:** [rawmind/whisper-distill-sr](https://github.com/rawmind/whisper-distill-sr) on GitHub.
 
+**Newer version:** [rawmind/whisper-small-sr-distill-v2](https://huggingface.co/rawmind/whisper-small-sr-distill-v2) is also trained on parliament speech and makes fewer errors (17.4% against 24.6% on Serbian FLEURS), but its language detection is unusable and its license is CC BY-SA 4.0.
+
 ## Serbian tests
 
 | Serbian test | Clips | Student | Whisper small | large-v3-turbo |
