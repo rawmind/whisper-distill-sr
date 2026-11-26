@@ -38,7 +38,7 @@ Better than Whisper `small` in Serbian and Croatian in our tests, and smaller in
 
 Word error rate in % (lower is better), whisper.cpp 1.9.6, with a 95% bootstrap range over clips. Same size and speed as `small`: 212 ms against 211 ms per clip on an M4 Max GPU. The student beats `small` in all six tests; in the last one the ranges overlap slightly. Turbo is far ahead but 1.6 GB and about 2.3 times slower.
 
-- **Parliament:** 150 clips, 28 speakers, from one file of [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) (CC-BY-4.0). None were in the student's training data, which was FLEURS only. Its transcripts are official records, not always word for word, so compare models, not totals. Whisper's own training data isn't public, so turbo's 10.1 could benefit from overlap.
+- **Parliament:** 150 clips, 28 speakers, from one file of [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) (CC BY-SA 4.0 on [CLARIN.SI](http://hdl.handle.net/11356/1834)). None were in the student's training data, which was FLEURS only. Its transcripts are official records, not always word for word, so compare models, not totals. Whisper's own training data isn't public, so turbo's 10.1 could benefit from overlap.
 - **Shortened context:** whisper.cpp's `audio_ctx` set to the clip length plus one second, as Titl does on slow machines.
 - **Silence:** on five clips with no speech (digital silence and plain noise) all three models wrote text. The student wrote `(Šeštaj)` or `(„eštaj)` on four and a line of mixed-script gibberish on the silent one, `small` wrote `[Muzika]` or `*svijedna*`, and turbo wrote `Hvala.` or `Hvala što pratite kanal.`. Filter out silent audio before using any of them.
 

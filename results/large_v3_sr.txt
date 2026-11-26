@@ -1,0 +1,14 @@
+large-v3	fleurs	400 clips	WER 13.0	95% 12.1-13.9	words 7855
+large-v3	parliament	150 clips	WER 9.1	95% 7.9-10.4	words 3763
+large-v3	noise 10 dB	100 clips	WER 16.9	95% 15.1-19.0	words 1974
+large-v3	noise 5 dB	100 clips	WER 20.1	95% 18.0-22.4	words 1974
+large-v3	fleurs, short context	100 clips	WER 22.3	95% 15.5-31.2	words 1974
+large-v3	parliament, short context	100 clips	WER 15.1	95% 11.0-20.8	words 2560
+large-v3	silence and noise	['Hvala što pratite kanal.', 'Hvala vam.', 'Hvala vam.', 'Продавање', 'Продавање']
+turbo	fleurs	400 clips	WER 13.2	95% 12.4-14.2	words 7855
+turbo	parliament	150 clips	WER 10.1	95% 8.8-11.5	words 3763
+turbo	noise 10 dB	100 clips	WER 16.9	95% 14.9-19.0	words 1974
+turbo	noise 5 dB	100 clips	WER 19.9	95% 17.7-22.2	words 1974
+turbo	fleurs, short context	100 clips	WER 22.1	95% 16.7-28.2	words 1974
+turbo	parliament, short context	100 clips	WER 15.9	95% 12.9-19.7	words 2560
+turbo	silence and noise	['Hvala što pratite kanal.', 'Hvala.', 'Hvala.', 'Hvala.', 'Hvala.']

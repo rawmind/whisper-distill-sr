@@ -18,7 +18,7 @@ The student keeps the size and speed of `small` (488 MB in whisper.cpp format).
 
 Word error rate in %, with a 95% bootstrap range over clips. Same size as `small` and the same speed: 212 ms against 211 ms per clip on an M4 Max GPU. The student beats `small` in all six tests; in the last one the ranges overlap slightly. Turbo is far ahead but 1.6 GB and about 2.3 times slower.
 
-- **Parliament:** 150 clips, 28 speakers, from one file of [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) (CC-BY-4.0). None were in the student's training data, which was FLEURS only. Its transcripts are official records, not always word for word, so compare models, not totals. Whisper's own training data isn't public, so turbo's 10.1 could benefit from overlap.
+- **Parliament:** 150 clips, 28 speakers, from one file of [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) (CC BY-SA 4.0 on [CLARIN.SI](http://hdl.handle.net/11356/1834)). None were in the student's training data, which was FLEURS only. Its transcripts are official records, not always word for word, so compare models, not totals. Whisper's own training data isn't public, so turbo's 10.1 could benefit from overlap.
 - **Shortened context:** whisper.cpp's `audio_ctx` set to the clip length plus one second, as Titl does on slow machines.
 - **Silence:** on five clips with no speech (digital silence and plain noise) all three models wrote text. The student wrote `(Šeštaj)` or `(„eštaj)` on four and a line of mixed-script gibberish on the silent one, `small` wrote `[Muzika]` or `*svijedna*`, and turbo wrote `Hvala.` or `Hvala što pratite kanal.`. Filter out silent audio before using any of them.
 
@@ -133,6 +133,31 @@ The q8_0 file scored within 0.6 points of f16 in every test where both ran on th
 - **Licenses:** the master copies of both ParlaSpeech datasets, on CLARIN.SI ([HR](http://hdl.handle.net/11356/1914), [RS](http://hdl.handle.net/11356/1834)), are CC BY-SA 4.0. Hugging Face lists ParlaSpeech-RS as CC BY 4.0 and no license for ParlaSpeech-HR.
 
 Prepare the data with `prepare_parliament.py` (about 5 GB of downloads, 4 GB kept) and train with `distill.py --work work/more --hr 400 --en 400 --minutes 240 --parliament`. The training log is `results/train_student_improved.log`, the raw scores are in `results/student_improved.txt`.
+
+## A larger teacher: large-v3
+
+Would full Whisper large-v3 (32 decoder layers, 3.1 GB) teach better than large-v3-turbo (4 decoder layers)? Both ran on the same clips with the same method, whisper.cpp 1.9.6 from Homebrew on an M4 Max GPU. Turbo was run again on this build and matched the tables above to the decimal.
+
+Word error rate in %, with a 95% bootstrap range over clips.
+
+| Test | Clips | Serbian large-v3 | Serbian turbo | Croatian large-v3 | Croatian turbo |
+|---|---|---|---|---|---|
+| FLEURS | 400 | 13.0 (12.1–13.9) | 13.2 (12.4–14.2) | **10.7** (9.8–11.7) | 11.4 (10.4–12.4) |
+| Parliament | 150 | **9.1** (7.9–10.4) | 10.1 (8.8–11.5) | **12.3** (10.7–14.2) | 13.6 (11.9–15.4) |
+| FLEURS + pink noise, 10 dB | 100 | 16.9 (15.1–19.0) | 16.9 (14.9–19.0) | 17.1 (14.8–19.3) | 17.7 (15.4–19.9) |
+| FLEURS + pink noise, 5 dB | 100 | 20.1 (18.0–22.4) | 19.9 (17.7–22.2) | **27.4** (24.3–30.3) | 29.9 (26.9–33.1) |
+| FLEURS, shortened context | 100 | 22.3 (15.5–31.2) | 22.1 (16.7–28.2) | 17.7 (12.5–24.0) | 16.7 (12.5–21.3) |
+| Parliament, shortened context | 100 | 15.1 (11.0–20.8) | 15.9 (12.9–19.7) | 17.9 (13.3–24.1) | 17.4 (14.3–20.7) |
+
+- **Serbian:** a tie. The largest gap is 1.0 point on parliament, and every range overlaps.
+- **Croatian:** large-v3 is ahead in four of six tests, by 0.6 to 2.5 points, most in 5 dB noise. The ranges overlap; the two were not compared clip by clip.
+- **Serbian forms in Croatian:** 6 of 1,189 words with *je* on FLEURS for large-v3 against 8 for turbo, and 2 of 454 for both on parliament.
+- **Silence:** both write text on all five no-speech clips. Turbo writes `Hvala.` or `Hvala što pratite kanal.`; in Serbian, large-v3 also wrote `Продавање` in Cyrillic.
+- **Speed** was not measured here.
+
+Turbo stays the teacher: large-v3 offers no headroom for Serbian, and at most a small one for Croatian. More and noisier training data is the likelier way to close the gap to turbo.
+
+The model is `ggml-large-v3.bin` from [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) (SHA-256 `64d182b4…94d1e2`). Run `python speech_tests.py large-v3=models/ggml-large-v3.bin turbo=path/to/ggml-large-v3-turbo.bin --lang sr`, and again with `--lang hr`. The raw scores are in `results/large_v3_sr.txt` and `results/large_v3_hr.txt`.
 
 ## whisper.cpp versions
 
