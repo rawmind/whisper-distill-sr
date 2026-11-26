@@ -3,7 +3,7 @@
 Distils Whisper large-v3-turbo into Whisper small for Serbian speech, on one Apple Silicon Mac.
 The student keeps the size and speed of `small` (488 MB in whisper.cpp format).
 
-**Download the model:** [rawmind/whisper-small-sr-distill](https://huggingface.co/rawmind/whisper-small-sr-distill) on Hugging Face.
+**Download the model:** [rawmind/whisper-small-sr-distill](https://huggingface.co/rawmind/whisper-small-sr-distill) on Hugging Face. A second version trained on parliament speech too, with fewer errors, is [rawmind/whisper-small-sr-distill-v2](https://huggingface.co/rawmind/whisper-small-sr-distill-v2) (CC BY-SA 4.0, see [below](#more-training-data-student_improved)).
 
 ## Serbian tests
 
@@ -108,7 +108,9 @@ Reproduce with `cpu_benchmark.py --silence --server-args "--vad --vad-model ..."
 
 ## More training data: student_improved
 
-A second student, trained on 20,968 clips instead of 3,344: the FLEURS clips above, plus 15,248 Serbian and 3,922 Croatian clips from [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) and [ParlaSpeech-HR](https://huggingface.co/datasets/classla/ParlaSpeech-HR), before the worst tenth of the parliament clips was dropped. Same size and architecture. Training took 10,354 steps (2.0 epochs) in 4 hours, after a 2.3-hour teacher pass. **The weights are not published.**
+A second student, trained on 20,968 clips instead of 3,344: 3,715 FLEURS clips (2,944 Serbian, 377 Croatian, 394 English), plus 15,248 Serbian and 3,922 Croatian clips from [ParlaSpeech-RS](https://huggingface.co/datasets/classla/ParlaSpeech-RS) and [ParlaSpeech-HR](https://huggingface.co/datasets/classla/ParlaSpeech-HR), minus the 1,917 parliament clips (a tenth) that the teacher found least likely. Same size and architecture. Training took 10,354 steps (2.0 epochs) in 4 hours, after a 2.3-hour teacher pass.
+
+**Download:** [rawmind/whisper-small-sr-distill-v2](https://huggingface.co/rawmind/whisper-small-sr-distill-v2) on Hugging Face, as `ggml-small-sr-distill-v2.bin` (f16) and `ggml-small-sr-distill-v2-q8_0.bin`, with the Transformers weights. The weights are CC BY-SA 4.0 because of the ParlaSpeech data, unlike the MIT of the first student. Its model card is [MODEL_CARD_v2.md](MODEL_CARD_v2.md).
 
 Word error rate in %, whisper.cpp 1.9.6 built from source, same clips as the tables above. The change is against the published student, clip by clip, with a 95% range.
 
