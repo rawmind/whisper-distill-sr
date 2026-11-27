@@ -1,0 +1,7 @@
+aug2	fleurs	400 clips	WER 16.6	95% 15.6-17.8	words 7855
+aug2	parliament	150 clips	WER 9.8	95% 8.4-11.2	words 3763
+aug2	noise 10 dB	100 clips	WER 20.1	95% 18.0-22.4	words 1974
+aug2	noise 5 dB	100 clips	WER 26.2	95% 23.5-29.2	words 1974
+aug2	fleurs, short context	100 clips	WER 17.0	95% 14.8-20.0	words 1974
+aug2	parliament, short context	100 clips	WER 10.8	95% 9.0-12.9	words 2560
+aug2	silence and noise	['Urlo je više da se da koji je zaštodi u kojoj tuži. U Srbiji', '„', '„', '„ŽEVA“.', '„ŽEVA“.']

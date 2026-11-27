@@ -1,0 +1,7 @@
+aug2	fleurs	400 clips	WER 18.2	95% 17.1-19.5	words 7778	Serbian forms 8/1189
+aug2	parliament	150 clips	WER 15.9	95% 13.9-17.8	words 3763	Serbian forms 2/454
+aug2	noise 10 dB	100 clips	WER 27.0	95% 24.1-29.8	words 1949	Serbian forms 2/256
+aug2	noise 5 dB	100 clips	WER 39.1	95% 36.1-42.3	words 1949	Serbian forms 3/256
+aug2	fleurs, short context	100 clips	WER 17.4	95% 14.9-19.8	words 1949	Serbian forms 4/256
+aug2	parliament, short context	100 clips	WER 15.6	95% 13.2-18.1	words 2507	Serbian forms 3/315
+aug2	silence and noise	['Početno je da je tačno.', 'Panasena 3j. 127c. 8avez, Sigurno 4zno (gidentiran kožujek t', 'mat�štovi.san lij London глontonž,wego interna pola porelife', 'arsonstru ze tijekat izginicove pravmi. 120 bola prav Kr sew', 'VRADUzone.B Martisan list Kopenkovina resolverovati ste toču']

@@ -1,0 +1,12 @@
+dropped 1917 parliament clips with teacher loss above 0.94, median 0.47
+train clips 20968 augment True clean share 0.4
+step 1000 ce 0.481 kd 0.893 0.71 it/s epoch 0.19 mps 13.5GB disk 44.4GB batt (True, 89)
+step 2000 ce 0.436 kd 0.788 0.71 it/s epoch 0.38 mps 13.5GB disk 44.3GB batt (True, 100)
+step 3000 ce 0.389 kd 0.676 0.71 it/s epoch 0.57 mps 13.5GB disk 44.4GB batt (True, 100)
+step 4000 ce 0.330 kd 0.618 0.71 it/s epoch 0.76 mps 13.5GB disk 44.3GB batt (True, 100)
+step 5000 ce 0.343 kd 0.611 0.71 it/s epoch 0.95 mps 13.5GB disk 44.7GB batt (True, 100)
+step 6000 ce 0.249 kd 0.473 0.71 it/s epoch 1.14 mps 13.5GB disk 44.6GB batt (True, 100)
+step 7000 ce 0.236 kd 0.451 0.71 it/s epoch 1.34 mps 13.5GB disk 44.6GB batt (True, 100)
+step 8000 ce 0.213 kd 0.420 0.70 it/s epoch 1.53 mps 13.5GB disk 40.9GB batt (True, 100)
+step 9000 ce 0.254 kd 0.458 0.70 it/s epoch 1.72 mps 13.5GB disk 40.9GB batt (True, 100)
+done: 9915 steps, 1.9 epochs, saved work/aug2/student

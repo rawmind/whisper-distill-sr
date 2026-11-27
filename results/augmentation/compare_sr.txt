@@ -1,0 +1,7 @@
+test	clips	v2	aug	change (95%)	better/worse clips
+fleurs	400	17.3	17.4	+0.1 (-0.6 to +0.7)	118/114
+parliament	150	10.6	9.6	-0.9 (-1.6 to -0.2)	38/17
+noise 10 dB	100	22.4	20.3	-2.1 (-3.8 to -0.4)	42/26
+noise 5 dB	100	28.7	25.8	-2.8 (-4.5 to -1.3)	45/24
+fleurs, short context	100	16.5	16.9	+0.4 (-0.9 to +1.8)	32/33
+parliament, short context	100	11.4	10.9	-0.5 (-1.4 to +0.4)	18/14
