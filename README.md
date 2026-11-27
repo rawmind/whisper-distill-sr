@@ -3,7 +3,7 @@
 Distils Whisper large-v3-turbo into Whisper small for Serbian speech, on one Apple Silicon Mac.
 The student keeps the size and speed of `small` (488 MB in whisper.cpp format).
 
-**Download the model:** [rawmind/whisper-small-sr-distill](https://huggingface.co/rawmind/whisper-small-sr-distill) on Hugging Face. A second version trained on parliament speech too, with fewer errors, is [rawmind/whisper-small-sr-distill-v2](https://huggingface.co/rawmind/whisper-small-sr-distill-v2) (CC BY-SA 4.0, see [below](#more-training-data-student_improved)).
+**Download the model:** [rawmind/whisper-small-sr-distill](https://huggingface.co/rawmind/whisper-small-sr-distill) on Hugging Face. A second version trained on parliament speech too, with fewer errors, is [rawmind/whisper-small-sr-distill-v2](https://huggingface.co/rawmind/whisper-small-sr-distill-v2) (CC BY-SA 4.0, see [below](#more-training-data-student_improved)). A third, trained on noisy and reverberant audio, makes fewer errors in noise and in streaming: [rawmind/whisper-small-sr-distill-v3](https://huggingface.co/rawmind/whisper-small-sr-distill-v3) (CC BY-SA 4.0, see [below](#experiment-noise-and-room-augmentation)).
 
 ## Serbian tests
 
@@ -161,7 +161,7 @@ The model is `ggml-large-v3.bin` from [ggerganov/whisper.cpp](https://huggingfac
 
 ## Experiment: noise and room augmentation
 
-Same data, teacher targets and 240-minute budget as `student_improved`, but the student hears altered audio while the teacher's targets stay those of the clean clip (`distill.py --augment`, see `augment.py`). 20% of clips stay clean; the rest get, at random, a speed change of 0.9–1.1× (30%), synthetic room reverb with RT60 0.2–0.8 s (30%), noise at 0–20 dB SNR (80%: white, brown, babble of 3–6 other training clips, or mains hum), a lowpass at 3.4–7 kHz (25%) and 8-bit mu-law (10%). Pink noise is left out on purpose, because the noise tests use it. The run reached 9,759 steps against 10,354 for `student_improved`. It is not yet published; a second run with 40% clean clips is compared below.
+Same data, teacher targets and 240-minute budget as `student_improved`, but the student hears altered audio while the teacher's targets stay those of the clean clip (`distill.py --augment`, see `augment.py`). 20% of clips stay clean; the rest get, at random, a speed change of 0.9–1.1× (30%), synthetic room reverb with RT60 0.2–0.8 s (30%), noise at 0–20 dB SNR (80%: white, brown, babble of 3–6 other training clips, or mains hum), a lowpass at 3.4–7 kHz (25%) and 8-bit mu-law (10%). Pink noise is left out on purpose, because the noise tests use it. The run reached 9,759 steps against 10,354 for `student_improved`. It is published as [rawmind/whisper-small-sr-distill-v3](https://huggingface.co/rawmind/whisper-small-sr-distill-v3), with `ggml-small-sr-distill-v3.bin` (f16) and `ggml-small-sr-distill-v3-q8_0.bin`, SHA-256 `578f8c9a…a880b0e`; its model card is [MODEL_CARD_v3.md](MODEL_CARD_v3.md). A second run with 40% clean clips is compared below.
 
 Word error rate in %, both models q8_0, whisper.cpp 1.9.6. The change is clip by clip, with a 95% range.
 
@@ -223,7 +223,7 @@ In Titl's pipeline run 1 is better in all eight conditions:
 | | backlog, full | 25.9 | **21.3** | 23.1 |
 | | backlog, short | 25.8 | **22.0** | 23.4 |
 
-Both runs beat v2 on noise and in the pipeline, so augmentation helps. More clean clips did not pay off: run 2 gave back 0.4 to 2.9 points in the pipeline for no significant gain elsewhere. Each setting was trained once, and the runs differ by up to about 1 point on the sentence tests, so small differences between them may be run-to-run spread. Run 1 is the candidate to publish.
+Both runs beat v2 on noise and in the pipeline, so augmentation helps. More clean clips did not pay off: run 2 gave back 0.4 to 2.9 points in the pipeline for no significant gain elsewhere. Each setting was trained once, and the runs differ by up to about 1 point on the sentence tests, so small differences between them may be run-to-run spread. Run 1 is the one published as v3.
 
 Reproduce with `distill.py --work work/aug --hr 400 --en 400 --minutes 240 --parliament --augment`, `speech_tests.py … --dump`, `compare.py` and `pipeline_test.py … --set data/speech/sr/parliament --titl path/to/titl --vad-model ggml-silero-v6.2.0.bin`. Add `--clean-share 0.4` for run 2. Raw results are in `results/augmentation/`, run 2 in `results/augmentation/run2/`.
 
