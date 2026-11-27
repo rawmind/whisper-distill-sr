@@ -1,0 +1,4 @@
+aug2	fast, full context	30.7 min	WER 20.1	sub 249 ins 148 del 361 of 3763	windows 333 median 8.4 s	errors 0
+aug2	fast, short context	30.7 min	WER 21.7	sub 287 ins 237 del 291 of 3763	windows 344 median 8.5 s	errors 0
+aug2	backlog, full context	30.7 min	WER 17.5	sub 237 ins 130 del 293 of 3763	windows 212 median 12.0 s	errors 0
+aug2	backlog, short context	30.7 min	WER 18.1	sub 242 ins 137 del 301 of 3763	windows 215 median 12.0 s	errors 0
