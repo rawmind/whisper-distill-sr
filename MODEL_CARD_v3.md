@@ -31,31 +31,40 @@ Whisper small, distilled from Whisper large-v3-turbo for Serbian and Croatian. I
 
 [Titl](https://github.com/rawmind/titl) sends 8–12 s windows of a long stream to whisper-server with speech detection on. It keeps the segments that end at least 1 s before the window's end and merges the text. This test runs Titl's own code on 150 held-out parliament clips per language, joined into one stream, and scores the stitched text. Fast feeding gives about 8 s windows, as on a GPU. Backlog gives 12 s windows, as on a slow CPU.
 
-| Stream | Feeding, context | v2 | v3 |
-|---|---|---|---|
-| Serbian, 30.7 min | fast, full | 22.1 | **18.1** |
-| | fast, short | 22.4 | **20.3** |
-| | backlog, full | 21.7 | **15.9** |
-| | backlog, short | 17.7 | 17.7 |
-| Croatian, 28.3 min | fast, full | 28.7 | **24.5** |
-| | fast, short | 29.9 | **25.4** |
-| | backlog, full | 25.9 | **21.3** |
-| | backlog, short | 25.8 | **22.0** |
+| Stream | Feeding, context | Whisper small | v2 | **v3** | large-v3-turbo |
+|---|---|---|---|---|---|
+| Serbian, 30.7 min | fast, full | 32.9 | 22.1 | **18.1** | 12.9 |
+| | fast, short | 33.2 | 22.4 | **20.3** | 15.4 |
+| | backlog, full | 30.0 | 21.7 | **15.9** | 11.6 |
+| | backlog, short | 30.3 | 17.7 | **17.7** | 13.0 |
+| Croatian, 28.3 min | fast, full | 38.4 | 28.7 | **24.5** | 15.3 |
+| | fast, short | 38.2 | 29.9 | **25.4** | 19.9 |
+| | backlog, full | 36.2 | 25.9 | **21.3** | 15.4 |
+| | backlog, short | 36.2 | 25.8 | **22.0** | 16.5 |
 
-These are word error rates in %, with q8_0 models and whisper.cpp 1.9.6. Most of the gain comes from fewer dropped words. v2 often skips the first words of a window that starts in the middle of speech.
+These are word error rates in %, on whisper.cpp 1.9.6 with Metal: v2 and v3 in q8_0, small and turbo in f16. v3 makes 36 to 45% fewer errors than Whisper `small` and closes part of the gap from v2 to turbo. Turbo, with over three times the parameters, stays ahead in every condition. Most of v3's gain over v2 comes from fewer dropped words. v2 often skips the first words of a window that starts in the middle of speech.
 
 ## Sentence tests
 
-| Test | Clips | Serbian v2 | v3 | Change (95%) | Croatian v2 | v3 | Change (95%) |
-|---|---|---|---|---|---|---|---|
-| FLEURS, clean read speech | 400 | 17.3 | 17.4 | +0.1 (−0.6 to +0.7) | 18.0 | 18.4 | +0.4 (−0.3 to +1.2) |
-| Parliament, real speech | 150 | 10.6 | **9.6** | −0.9 (−1.6 to −0.2) | 15.7 | 16.6 | +0.9 (−0.1 to +1.9) |
-| FLEURS + pink noise, 10 dB | 100 | 22.4 | **20.3** | −2.1 (−3.8 to −0.4) | 29.8 | **26.3** | −3.5 (−5.5 to −1.5) |
-| FLEURS + pink noise, 5 dB | 100 | 28.7 | **25.8** | −2.8 (−4.5 to −1.3) | 47.5 | **37.7** | −9.9 (−12.4 to −7.2) |
-| FLEURS, shortened context | 100 | 16.5 | 16.9 | +0.4 (−0.9 to +1.8) | 18.0 | 19.1 | +1.1 (−1.0 to +3.5) |
-| Parliament, shortened context | 100 | 11.4 | 10.9 | −0.5 (−1.4 to +0.4) | 15.2 | 15.4 | +0.2 (−1.0 to +1.6) |
+| Serbian test | Clips | Whisper small | v2 | **v3** | v3 vs v2 (95%) | large-v3-turbo |
+|---|---|---|---|---|---|---|
+| FLEURS, clean read speech | 400 | 38.1 | 17.3 | 17.4 | +0.1 (−0.6 to +0.7) | 13.2 |
+| Parliament, real speech | 150 | 28.5 | 10.6 | **9.6** | −0.9 (−1.6 to −0.2) | 10.1 |
+| FLEURS + pink noise, 10 dB | 100 | 43.0 | 22.4 | **20.3** | −2.1 (−3.8 to −0.4) | 16.9 |
+| FLEURS + pink noise, 5 dB | 100 | 50.5 | 28.7 | **25.8** | −2.8 (−4.5 to −1.3) | 19.9 |
+| FLEURS, shortened context | 100 | 39.3 | 16.5 | 16.9 | +0.4 (−0.9 to +1.8) | 22.1 |
+| Parliament, shortened context | 100 | 27.4 | 11.4 | 10.9 | −0.5 (−1.4 to +0.4) | 15.9 |
 
-These are word error rates in %, with both models in q8_0 on whisper.cpp 1.9.6 with Metal. The change is measured clip by clip, with a 95% bootstrap range. For reference, large-v3-turbo scores 13.2 and 10.1 on Serbian FLEURS and parliament, and 11.4 and 13.6 on Croatian.
+| Croatian test | Clips | Whisper small | v2 | **v3** | v3 vs v2 (95%) | large-v3-turbo |
+|---|---|---|---|---|---|---|
+| FLEURS, clean read speech | 400 | 35.5 | 18.0 | 18.4 | +0.4 (−0.3 to +1.2) | 11.4 |
+| Parliament, real speech | 150 | 33.1 | 15.7 | 16.6 | +0.9 (−0.1 to +1.9) | 13.6 |
+| FLEURS + pink noise, 10 dB | 100 | 51.8 | 29.8 | **26.3** | −3.5 (−5.5 to −1.5) | 17.7 |
+| FLEURS + pink noise, 5 dB | 100 | 68.3 | 47.5 | **37.7** | −9.9 (−12.4 to −7.2) | 29.9 |
+| FLEURS, shortened context | 100 | 35.8 | 18.0 | 19.1 | +1.1 (−1.0 to +3.5) | 16.7 |
+| Parliament, shortened context | 100 | 33.5 | 15.2 | 15.4 | +0.2 (−1.0 to +1.6) | 17.4 |
+
+These are word error rates in %, on whisper.cpp 1.9.6 with Metal, on the same clips: v2 and v3 in q8_0, small and turbo in f16. The change from v2 to v3 is measured clip by clip, with a 95% bootstrap range. v3 beats Whisper `small` in every test, by 16 to 31 points. Turbo is ahead on clean and noisy FLEURS and on Croatian parliament speech. v3 is level with it on Serbian parliament speech, and ahead of it with a shortened context except on Croatian FLEURS.
 
 - **Noise:** v3 is clearly better in both languages. The test noise is pink, which was not used in training. Pink sits between the white and brown noise that was used, so this shows robustness to steady synthetic noise rather than to real recordings.
 - **Clean speech:** v3 is level with v2 in Serbian and slightly behind in Croatian. On Croatian parliament speech it is worse on 55 clips and better on 36.

@@ -1,0 +1,8 @@
+turbo	fast, full context	28.3 min	WER 15.3	sub 359 ins 62 del 153 of 3763	windows 307 median 8.5 s	errors 0
+turbo	fast, short context	28.3 min	WER 19.9	sub 419 ins 171 del 159 of 3763	windows 320 median 8.4 s	errors 0
+turbo	backlog, full context	28.3 min	WER 15.4	sub 337 ins 68 del 176 of 3763	windows 195 median 12.0 s	errors 0
+turbo	backlog, short context	28.3 min	WER 16.5	sub 383 ins 92 del 146 of 3763	windows 192 median 12.0 s	errors 0
+small	fast, full context	28.3 min	WER 38.4	sub 1060 ins 180 del 204 of 3763	windows 320 median 8.4 s	errors 0
+small	fast, short context	28.3 min	WER 38.2	sub 1060 ins 158 del 220 of 3763	windows 306 median 8.5 s	errors 0
+small	backlog, full context	28.3 min	WER 36.2	sub 1012 ins 171 del 180 of 3763	windows 203 median 12.0 s	errors 0
+small	backlog, short context	28.3 min	WER 36.2	sub 1033 ins 146 del 185 of 3763	windows 194 median 12.0 s	errors 0
