@@ -159,6 +159,44 @@ Turbo stays the teacher: large-v3 offers no headroom for Serbian, and at most a 
 
 The model is `ggml-large-v3.bin` from [ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp) (SHA-256 `64d182b4…94d1e2`). Run `python speech_tests.py large-v3=models/ggml-large-v3.bin turbo=path/to/ggml-large-v3-turbo.bin --lang sr`, and again with `--lang hr`. The raw scores are in `results/large_v3_sr.txt` and `results/large_v3_hr.txt`.
 
+## Experiment: noise and room augmentation
+
+Same data, teacher targets and 240-minute budget as `student_improved`, but the student hears altered audio while the teacher's targets stay those of the clean clip (`distill.py --augment`, see `augment.py`). 20% of clips stay clean; the rest get, at random, a speed change of 0.9–1.1× (30%), synthetic room reverb with RT60 0.2–0.8 s (30%), noise at 0–20 dB SNR (80%: white, brown, babble of 3–6 other training clips, or mains hum), a lowpass at 3.4–7 kHz (25%) and 8-bit mu-law (10%). Pink noise is left out on purpose, because the noise tests use it. The run reached 9,759 steps against 10,354 for `student_improved`. It is a single run, not yet published.
+
+Word error rate in %, both models q8_0, whisper.cpp 1.9.6. The change is clip by clip, with a 95% range.
+
+| Test | Clips | Serbian v2 | Augmented | Change | Croatian v2 | Augmented | Change |
+|---|---|---|---|---|---|---|---|
+| FLEURS | 400 | 17.3 | 17.4 | +0.1 (−0.6 to +0.7) | 18.0 | 18.4 | +0.4 (−0.3 to +1.2) |
+| Parliament | 150 | 10.6 | **9.6** | −0.9 (−1.6 to −0.2) | 15.7 | 16.6 | +0.9 (−0.1 to +1.9) |
+| FLEURS + pink noise, 10 dB | 100 | 22.4 | **20.3** | −2.1 (−3.8 to −0.4) | 29.8 | **26.3** | −3.5 (−5.5 to −1.5) |
+| FLEURS + pink noise, 5 dB | 100 | 28.7 | **25.8** | −2.8 (−4.5 to −1.3) | 47.5 | **37.7** | −9.9 (−12.4 to −7.2) |
+| FLEURS, shortened context | 100 | 16.5 | 16.9 | +0.4 (−0.9 to +1.8) | 18.0 | 19.1 | +1.1 (−1.0 to +3.5) |
+| Parliament, shortened context | 100 | 11.4 | 10.9 | −0.5 (−1.4 to +0.4) | 15.2 | 15.4 | +0.2 (−1.0 to +1.6) |
+
+- **Noise** is clearly better in both languages. The noise is pink and the training noise is not, but pink lies between the white and brown noise used in training, so this shows robustness to steady synthetic noise rather than to real recordings.
+- **Clean speech** is unchanged in Serbian and slightly worse in Croatian; on Croatian parliament the student is worse on 55 clips and better on 36.
+- **Silence:** it still writes text on no-speech clips. Use speech detection.
+
+### Titl's pipeline
+
+The tests above score whole sentences. [Titl](https://github.com/rawmind/titl) instead sends 8–12 s windows of a long stream, keeps the segments that end at least 1 s before the window's end, starts the next window there and merges the text. `pipeline_test.py` runs Titl's own `LookaheadTranscriber` under Node against whisper-server with speech detection on, on the 150 held-out parliament clips of each language joined in order with 0.5 s of silence, and scores the stitched text. Fast feeding gives about 8 s windows, as on a GPU; backlog gives 12 s windows, as on a slow CPU. Titl 0.1.22.
+
+| Stream | Feeding, context | v2 | Augmented |
+|---|---|---|---|
+| Serbian, 30.7 min | fast, full | 22.1 | **18.1** |
+| | fast, short | 22.4 | **20.3** |
+| | backlog, full | 21.7 | **15.9** |
+| | backlog, short | 17.7 | 17.7 |
+| Croatian, 28.3 min | fast, full | 28.7 | **24.5** |
+| | fast, short | 29.9 | **25.4** |
+| | backlog, full | 25.9 | **21.3** |
+| | backlog, short | 25.8 | **22.0** |
+
+The gain comes mostly from fewer dropped words, for example 449 against 177 deletions in Serbian with backlog feeding and full context: v2 often skips the first words of a window that starts in the middle of speech. Parliament references are official records, so read the numbers as a comparison between models.
+
+Reproduce with `distill.py --work work/aug --hr 400 --en 400 --minutes 240 --parliament --augment`, `speech_tests.py … --dump`, `compare.py` and `pipeline_test.py … --set data/speech/sr/parliament --titl path/to/titl --vad-model ggml-silero-v6.2.0.bin`. Raw results are in `results/augmentation/`.
+
 ## whisper.cpp versions
 
 The numbers above are from whisper.cpp 1.9.6. Version matters with a shortened context: 1.9.5 made 2.7 to 21.9 more errors per 100 words than 1.9.6 across three models and both languages, with both built from source on the same clips. At full length it was 0.6 to 1.5 points worse. Homebrew's 1.9.5_2 was far worse on shortened context too. `results/whisper_versions.tsv` has every score with its version.

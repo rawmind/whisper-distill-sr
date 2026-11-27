@@ -13,6 +13,7 @@ import torch
 import torch.nn.functional as F
 from transformers import WhisperFeatureExtractor, WhisperForConditionalGeneration, WhisperTokenizer
 
+from augment import augment
 from common import LANGS, latin, read_tsv
 
 TEACHER = "openai/whisper-large-v3-turbo"
@@ -148,6 +149,13 @@ def train(args, data):
     start = time.time()
     order = list(range(len(items)))
     rng = random.Random(3)
+    noise_rng = np.random.default_rng(4)
+    other = lambda: load_audio(items[noise_rng.integers(len(items))]["wav"])
+
+    def audio_for(k):
+        audio = load_audio(items[k]["wav"])
+        return augment(audio, noise_rng, other, args.clean_share)[0] if args.augment else audio
+
     step = 0
     losses = []
     done = False
@@ -169,7 +177,7 @@ def train(args, data):
             try:
                 for micro in [full[q : q + size] for q in range(0, args.batch, size)]:
                     pick = micro
-                    feats = fe([load_audio(items[k]["wav"]) for k in pick], sampling_rate=16000, return_tensors="pt").input_features.to(DEVICE)
+                    feats = fe([audio_for(k) for k in pick], sampling_rate=16000, return_tensors="pt").input_features.to(DEVICE)
                     ids = [tokens(ts, items[k]["text"], items[k]["lang"]) for k in pick]
                     width = (max(map(len, ids)) + 31) // 32 * 32
                     dec = torch.full((len(ids), width), ts.eos_token_id)
@@ -231,6 +239,8 @@ def main():
     p.add_argument("--alpha", type=float, default=0.5)
     p.add_argument("--parliament", action="store_true", help="also train on data/train/parla_sr and parla_hr from prepare_parliament.py")
     p.add_argument("--drop", type=float, default=0.1, help="share of parliament clips to drop, those the teacher finds least likely")
+    p.add_argument("--augment", action="store_true", help="train the student on noisy, reverberant, band-limited copies; the teacher targets stay those of the clean audio")
+    p.add_argument("--clean-share", type=float, default=0.2, help="share of clips left clean when augmenting")
     args = p.parse_args()
     Path(args.work).mkdir(parents=True, exist_ok=True)
     test_texts = {r[3].strip() for lang in LANGS for r in read_tsv(Path(args.test) / lang / "test.tsv")}
@@ -243,7 +253,7 @@ def main():
         items += rows(root, "parla_sr", "sr", 1000000, test_texts) + rows(root, "parla_hr", "hr", 1000000, test_texts)
     random.Random(2).shuffle(items)
     data = drop_mismatched(precompute(args, items), args.drop)
-    print("train clips", len(data["items"]), flush=True)
+    print("train clips", len(data["items"]), "augment", args.augment, "clean share", args.clean_share if args.augment else "-", flush=True)
     train(args, data)
 
 

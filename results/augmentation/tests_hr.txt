@@ -1,0 +1,14 @@
+v2	fleurs	400 clips	WER 18.0	95% 16.9-19.2	words 7778	Serbian forms 7/1189
+v2	parliament	150 clips	WER 15.7	95% 13.8-17.6	words 3763	Serbian forms 1/454
+v2	noise 10 dB	100 clips	WER 29.8	95% 27.0-32.7	words 1949	Serbian forms 1/256
+v2	noise 5 dB	100 clips	WER 47.5	95% 44.0-51.3	words 1949	Serbian forms 1/256
+v2	fleurs, short context	100 clips	WER 18.0	95% 15.7-20.2	words 1949	Serbian forms 4/256
+v2	parliament, short context	100 clips	WER 15.2	95% 12.9-17.5	words 2507	Serbian forms 3/315
+v2	silence and noise	['I iz hostu je.pingat du stі ku:', 'Počeo.', 'Zači, uvijek je, uvijek je.', 'Zapravo!anyu…Zapritve!Zk ershu ta,alkunuta,znje!Kudaćia su u', 'Jetvovi 2. 4 č MP bez droga je COVID-19 vrudručno akta gediz']
+aug	fleurs	400 clips	WER 18.4	95% 17.3-19.8	words 7778	Serbian forms 6/1189
+aug	parliament	150 clips	WER 16.6	95% 14.8-18.5	words 3763	Serbian forms 3/454
+aug	noise 10 dB	100 clips	WER 26.3	95% 23.2-29.4	words 1949	Serbian forms 6/256
+aug	noise 5 dB	100 clips	WER 37.7	95% 34.4-40.8	words 1949	Serbian forms 1/256
+aug	fleurs, short context	100 clips	WER 19.1	95% 16.4-21.9	words 1949	Serbian forms 4/256
+aug	parliament, short context	100 clips	WER 15.4	95% 13.3-17.5	words 2507	Serbian forms 3/315
+aug	silence and noise	['Poštovanički koji su učili u ovom mirovini, nemaju ništa, ni', 'Tema niti umenuje.', 'U štiti imaju kizon u što je viszože sobeno je pod su novanj', 'hvala --ana ljudski ot umčilo di performuve godinu,', 'Na ponupbeno, svevo li je? 190 neuro što?" Inversi je 1,5. 1']

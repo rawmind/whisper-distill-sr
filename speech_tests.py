@@ -1,5 +1,6 @@
 import argparse
 import io
+import json
 import math
 import random
 import re
@@ -142,7 +143,9 @@ def main():
     p.add_argument("--lang", choices=LANGUAGES, default="sr")
     p.add_argument("--data", default="data/speech")
     p.add_argument("--clips", type=int, default=400)
+    p.add_argument("--dump", help="write per-clip errors and word counts to this JSON file, for compare.py")
     args = p.parse_args()
+    dump = {}
     lang = args.lang
     folder, shard = LANGUAGES[lang]
     root = Path(args.data) / lang
@@ -167,12 +170,18 @@ def main():
             wait()
             for tag, clips, short in tests:
                 hyps = run(clips, short, lang)
+                dump.setdefault(name, {})[tag] = {
+                    "errors": [distance(normalize(r, lang), normalize(h, lang)) for (_, r), h in zip(clips, hyps)],
+                    "words": [len(normalize(r, lang)) for _, r in clips],
+                }
                 extra = "\t" + serbian_forms(clips, hyps) if lang == "hr" else ""
                 print(f"{name}\t{tag}\t{len(clips)} clips\t{score(clips, hyps, lang)}{extra}", flush=True)
             print(f"{name}\tsilence and noise\t{[post(w, language=lang, response_format='json', temperature='0')['text'].strip()[:60] for w in silent]}", flush=True)
         finally:
             server.terminate()
             server.wait()
+        if args.dump:
+            Path(args.dump).write_text(json.dumps(dump))
 
 
 if __name__ == "__main__":
